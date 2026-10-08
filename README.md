@@ -1,4 +1,4 @@
-# LinuxForge
+# PkgPulse
 Web interface to build, package-shop, and customize a fresh Linux system setup with distribution and tiling window manager presets.
 
 ## Data model
