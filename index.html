@@ -29,57 +29,80 @@
         <input type="text" class="search-input" placeholder="Search distributions (e.g., Arch, Ubuntu, Fedora)...">
     </div>
 
-    <!-- Main Container with Full Page Distro Grid -->
+    <!-- Main Container with Full Page Distro Grid & Configuration Portal -->
     <main class="distro-main">
-        <a href="#" class="panel distro-card">
-            <h2>Arch Linux</h2>
-            <p>Pacman / AUR / Ricing</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Manjaro</h2>
-            <p>Arch Family</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>EndeavourOS</h2>
-            <p>Arch Family</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Garuda Linux</h2>
-            <p>Arch Family / Gaming</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Ubuntu</h2>
-            <p>APT / Debian</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Debian</h2>
-            <p>APT Family / Stable</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Linux Mint</h2>
-            <p>APT Family / Desktop</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Pop!_OS</h2>
-            <p>APT / Developer Focused</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Fedora</h2>
-            <p>DNF / RPM / Modern</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>RHEL</h2>
-            <p>Enterprise Linux</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>NixOS</h2>
-            <p>Declarative Config</p>
-        </a>
-        <a href="#" class="panel distro-card">
-            <h2>Gentoo</h2>
-            <p>Source-based</p>
-        </a>
-    </main>
+        <!-- Distros Grid View -->
+        <div class="grid-view" id="distrosGrid">
+            <a href="#" class="panel distro-card" data-distro="arch">
+                <h2>Arch Linux</h2>
+                <p>Pacman / AUR / Ricing</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="manjaro">
+                <h2>Manjaro</h2>
+                <p>Arch Family</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="endeavouros">
+                <h2>EndeavourOS</h2>
+                <p>Arch Family</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="garuda">
+                <h2>Garuda Linux</h2>
+                <p>Arch Family / Gaming</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="ubuntu">
+                <h2>Ubuntu</h2>
+                <p>APT / Debian</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="debian">
+                <h2>Debian</h2>
+                <p>APT Family / Stable</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="mint">
+                <h2>Linux Mint</h2>
+                <p>APT Family / Desktop</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="pop">
+                <h2>Pop!_OS</h2>
+                <p>APT / Developer Focused</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="fedora">
+                <h2>Fedora</h2>
+                <p>DNF / RPM / Modern</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="rhel">
+                <h2>RHEL</h2>
+                <p>Enterprise Linux</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="nixos">
+                <h2>NixOS</h2>
+                <p>Declarative Config</p>
+            </a>
+            <a href="#" class="panel distro-card" data-distro="gentoo">
+                <h2>Gentoo</h2>
+                <p>Source-based</p>
+            </a>
+        </div>
 
+        <!-- Individual Distro Configuration Portal (Hidden by default) -->
+        <div class="portal-view panel" id="distroPortal" style="display: none;">
+            <button class="back-btn" id="backToGrid">← Back to Distributions</button>
+            <h2 id="portalTitle">Distro Name</h2>
+            <p id="portalDesc">Configuration and package selection portal.</p>
+            
+            <div class="portal-options">
+                <h3>Select Desktop Environment / Window Manager:</h3>
+                <select class="search-input" id="deSelect">
+                    <option value="hyprland">Hyprland (Wayland Tiling)</option>
+                    <option value="i3">i3wm (X11 Tiling)</option>
+                    <option value="gnome">GNOME</option>
+                    <option value="kde">KDE Plasma</option>
+                </select>
+
+                <h3>Generated Installation Script:</h3>
+                <pre class="code-preview"><code id="codeOutput"># Select options above to generate setup script...</code></pre>
+            </div>
+        </div>
+    </main>
+    <script src="js/main.js"></script>
 </body>
 </html>
