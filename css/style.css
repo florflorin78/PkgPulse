@@ -349,6 +349,16 @@ header p {
     margin: 0 0 20px 0;
 }
 
+.add-form-panel {
+    margin-bottom: 24px;
+}
+
+.add-form-panel h3 {
+    margin: 0 0 12px 0;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
 .status {
     font-size: 0.85rem;
     color: var(--text-muted);

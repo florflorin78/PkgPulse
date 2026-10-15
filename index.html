@@ -109,6 +109,24 @@
         <h2>My Packages</h2>
         <p class="app-count">3 packages, 2 selected</p>
 
+        <!-- Add Package Form -->
+        <div class="panel add-form-panel">
+            <h3>Add a new package</h3>
+            <form class="item-form">
+                <label>Package name
+                    <input type="text" name="name" placeholder="e.g. Neovim, Firefox, Kitty...">
+                </label>
+                <label>Type
+                    <select name="type">
+                        <option value="package">package</option>
+                        <option value="configuration">configuration</option>
+                        <option value="script">script</option>
+                    </select>
+                </label>
+                <button type="submit">Add Package</button>
+            </form>
+        </div>
+
         <ul class="item-list">
             <li class="item-card">
                 <div>
