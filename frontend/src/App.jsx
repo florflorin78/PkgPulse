@@ -1,23 +1,86 @@
-  import { packages, countSelected } from "./packages.js";
+import { useState } from "react";
+import { initialPackages, countSelected, filterByDistro } from "./packages.js";
+import DistroCard from "./components/DistroCard.jsx";
+import PackageCard from "./components/PackageCard.jsx";
+import { distros } from "./data/distros.js";
 
-const distros = [
-  { id: "arch", name: "Arch Linux", info: "Pacman / AUR / Ricing" },
-  { id: "manjaro", name: "Manjaro", info: "Arch Family" },
-  { id: "endeavouros", name: "EndeavourOS", info: "Arch Family" },
-  { id: "garuda", name: "Garuda Linux", info: "Arch Family / Gaming" },
-  { id: "ubuntu", name: "Ubuntu", info: "APT / Debian" },
-  { id: "debian", name: "Debian", info: "APT Family / Stable" },
-  { id: "mint", name: "Linux Mint", info: "APT Family / Desktop" },
-  { id: "pop", name: "Pop!_OS", info: "APT / Developer Focused" },
-  { id: "fedora", name: "Fedora", info: "DNF / RPM / Modern" },
-  { id: "rhel", name: "RHEL", info: "Enterprise Linux" },
-  { id: "nixos", name: "NixOS", info: "Declarative Config" },
-  { id: "gentoo", name: "Gentoo", info: "Source-based" },
-];
+
 
 export default function App() {
-  // Count selected packages with import func
+  // keep packages in state so changes re-render the page
+  const [packages, setPackages] = useState(initialPackages);
+
+  // Count selected packages
   const selected = countSelected(packages);
+
+  // form fields state
+  const [newName, setNewName] = useState("");
+  const [newType, setNewType] = useState("package");
+
+  // handle adding a new package
+  function handleAddPackage(e) {
+    e.preventDefault();
+    const trimmed = newName.trim();
+    if (trimmed === "") return; // dont add empty names
+
+    const nextId = packages.reduce((max, p) => Math.max(max, p.id), 0) + 1;
+    const newPkg = {
+      id: nextId,
+      name: trimmed,
+      selected: false,
+      type: newType,
+      category: "Utilities", // default for now
+    };
+    setPackages([...packages, newPkg]);
+    setNewName(""); // reset the input
+    setNewType("package");
+  }
+
+  // toggle the selected status of a package
+  function handleToggle(id) {
+    setPackages(packages.map((p) =>
+      p.id === id ? { ...p, selected: !p.selected } : p
+    ));
+  }
+
+  // delete a package from the list
+  function handleDelete(id) {
+    setPackages(packages.filter((p) => p.id !== id));
+  }
+
+  // search bar state
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // filter distros based on search
+  const filteredDistros = distros.filter((d) =>
+    d.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    d.info.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // which distro portal is open (null = show grid)
+  const [selectedDistro, setSelectedDistro] = useState(null);
+
+  // generate a simple install script based on distro
+  function generateScript(distro) {
+    const selectedPkgs = packages.filter((p) => p.selected);
+    if (selectedPkgs.length === 0) return "# No packages selected yet";
+
+    const names = selectedPkgs.map((p) => p.name.toLowerCase()).join(" ");
+    switch (distro.pkgManager) {
+      case "pacman":
+        return `sudo pacman -S ${names}`;
+      case "apt":
+        return `sudo apt install ${names}`;
+      case "dnf":
+        return `sudo dnf install ${names}`;
+      case "nix":
+        return `nix-env -iA nixpkgs.${selectedPkgs.map((p) => p.name.toLowerCase()).join(" nixpkgs.")}`;
+      case "emerge":
+        return `sudo emerge ${names}`;
+      default:
+        return `# Install: ${names}`;
+    }
+  }
 
   return (
     <>
@@ -37,25 +100,74 @@ export default function App() {
         <p>Select your Linux distribution to configure installation, packages, and ricing:</p>
       </header>
 
-      {/* Search bar (Later) */}
+      {/* Search bar */}
       <div className="search-container">
         <input
           type="text"
           className="search-input"
           placeholder="Search distributions (e.g., Arch, Ubuntu, Fedora)..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
 
-      {/* Distributions grid */}
+      {/* Distributions grid OR portal */}
       <main className="distro-main">
-        <div className="grid-view">
-          {distros.map((d) => (
-            <a href="#" className="panel distro-card" key={d.id}>
-              <h2>{d.name}</h2>
-              <p>{d.info}</p>
-            </a>
-          ))}
-        </div>
+        {selectedDistro === null ? (
+          // Grid view
+          <div className="grid-view">
+            {filteredDistros.length === 0 ? (
+              <p className="empty">No distributions match your search.</p>
+            ) : (
+              filteredDistros.map((d) => (
+                <DistroCard key={d.id} distro={d} onClick={setSelectedDistro} />
+              ))
+            )}
+          </div>
+        ) : (
+          // Portal view for one distro
+          <div className="portal-view panel">
+            <button className="back-btn" onClick={() => setSelectedDistro(null)}>
+              ← Back to Distributions
+            </button>
+            <h2>{selectedDistro.name}</h2>
+            <p>Configuration portal for {selectedDistro.name} ({selectedDistro.info})</p>
+
+            {/* Compatible packages for this distro */}
+            <div className="portal-packages">
+              <h3>Available packages for {selectedDistro.name}:</h3>
+              {filterByDistro(packages, selectedDistro.id).length === 0 ? (
+                <p className="empty">No compatible packages for this distro yet.</p>
+              ) : (
+                <div className="portal-pkg-list">
+                  {filterByDistro(packages, selectedDistro.id).map((p) => (
+                    <div className={"portal-pkg-card" + (p.selected ? " pkg-active" : "")} key={p.id}>
+                      <div className="portal-pkg-header">
+                        <h4>{p.name}</h4>
+                        <span className={"badge badge-" + p.type}>{p.type}</span>
+                      </div>
+                      <p className="pkg-desc">{p.description}</p>
+                      <p className="pkg-why"><strong>Why?</strong> {p.why}</p>
+                      <button
+                        className="btn-toggle"
+                        onClick={() => handleToggle(p.id)}
+                      >
+                        {p.selected ? "✓ Selected" : "Add to setup"}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="portal-options">
+              <h3>Generated install command:</h3>
+              <pre className="code-preview">
+                <code>{generateScript(selectedDistro)}</code>
+              </pre>
+            </div>
+          </div>
+        )}
       </main>
 
       {/* My packages section */}
@@ -69,14 +181,24 @@ export default function App() {
           {/* Add package form */}
           <div className="panel add-form-panel">
             <h3>Add a new package</h3>
-            <form className="item-form">
+            <form className="item-form" onSubmit={handleAddPackage}>
               <label>
                 Package name
-                <input type="text" name="name" placeholder="e.g. Neovim, Firefox, Kitty..." />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="e.g. Neovim, Firefox, Kitty..."
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                />
               </label>
               <label>
                 Type
-                <select name="type">
+                <select
+                  name="type"
+                  value={newType}
+                  onChange={(e) => setNewType(e.target.value)}
+                >
                   <option value="package">package</option>
                   <option value="configuration">configuration</option>
                   <option value="script">script</option>
@@ -89,17 +211,20 @@ export default function App() {
           {/* Package list */}
           <div className="panel">
             <h3>Package list</h3>
-            <ul className="item-list">
-              {packages.map((p) => (
-                <li className={p.selected ? "item-card" : "item-card done"} key={p.id}>
-                  <div>
-                    <h3>{p.name}</h3>
-                    <span className={"badge badge-" + p.type}>{p.type}</span>
-                  </div>
-                  <span className="status">{p.selected ? "Selected" : "Not selected"}</span>
-                </li>
-              ))}
-            </ul>
+            {packages.length === 0 ? (
+              <p className="empty">No packages yet. Add one using the form.</p>
+            ) : (
+              <ul className="item-list">
+                {packages.map((p) => (
+                  <PackageCard
+                    key={p.id}
+                    pkg={p}
+                    onToggle={handleToggle}
+                    onDelete={handleDelete}
+                  />
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </section>

@@ -2,12 +2,12 @@
    Root Variables & Color Palette
    ================================---------- */
 :root {
-    --bg-color: #1e1e2e;    
-    --card-bg: #181825;      
-    --text-color: #cdd6f4;    
-    --text-muted: #6c7086;  
-    --border-color: #313244;  
-    --accent-color: #cba6f7;   
+    --bg-color: #1e1e2e;
+    --card-bg: #181825;
+    --text-color: #cdd6f4;
+    --text-muted: #6c7086;
+    --border-color: #313244;
+    --accent-color: #cba6f7;
     --accent-hover: #b4befe;
 }
 
@@ -95,7 +95,8 @@ header p {
     font-size: 0.9rem;
 }
 
-.item-form input, .item-form select {
+.item-form input,
+.item-form select {
     padding: 10px;
     background: var(--bg-color);
     border: 1px solid var(--border-color);
@@ -252,7 +253,7 @@ header p {
 .grid-view {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 20px;  
+    gap: 20px;
     width: 100%;
 }
 
@@ -268,6 +269,7 @@ header p {
     main {
         grid-template-columns: 1fr;
     }
+
     .packages-grid {
         grid-template-columns: 1fr;
     }
@@ -389,4 +391,118 @@ header p {
 .badge-script {
     background: #f9e2af;
     color: #1e1e2e;
+}
+
+/* ==========================================
+   Package Action Buttons
+   ================================---------- */
+.item-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-toggle {
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-toggle:hover {
+    background: var(--accent-color);
+    color: #1e1e2e;
+}
+
+.btn-delete {
+    background: transparent;
+    border: 1px solid #f38ba8;
+    color: #f38ba8;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-delete:hover {
+    background: #f38ba8;
+    color: #1e1e2e;
+}
+
+/* ==========================================
+   Portal Package Cards
+   ================================---------- */
+.portal-packages {
+    margin-top: 24px;
+}
+
+.portal-packages h3 {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin: 0 0 12px 0;
+}
+
+.portal-pkg-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.portal-pkg-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 16px;
+    transition: border-color 0.2s;
+}
+
+.portal-pkg-card.pkg-active {
+    border-color: #a6e3a1;
+}
+
+.portal-pkg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.portal-pkg-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.pkg-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+}
+
+.pkg-why {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+    font-style: italic;
+}
+
+.pkg-why strong {
+    color: var(--accent-color);
+    font-style: normal;
+}
+
+/* ==========================================
+   Empty List Message
+   ================================---------- */
+.empty {
+    color: var(--text-muted);
+    font-style: italic;
+    text-align: center;
+    padding: 20px 0;
 }
