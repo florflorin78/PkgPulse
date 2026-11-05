@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { INITIAL_DISTROS, INITIAL_PACKAGES } from "./data.js";
+import { useEffect, useState } from "react";
+import { fetchDistros, fetchPackages } from "./api.js";
 import HomePage from "./components/HomePage.jsx";
 import DistrosPage from "./components/DistrosPage.jsx";
 import PackagesPage from "./components/PackagesPage.jsx";
@@ -20,10 +20,38 @@ function startTheme() {
 }
 
 export default function App() {
-  const [packages, setPackages] = useState(INITIAL_PACKAGES);
+  const [packages, setPackages] = useState([]);
+  const [distros, setDistros] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [theme, setTheme] = useState(startTheme);
   const [page, setPage] = useState("home");
   const [distroId, setDistroId] = useState(null);
+
+  // load the data once, on mount
+  useEffect(() => {
+    let ignore = false; // skip updates after unmount
+
+    async function load() {
+      try {
+        const packageData = await fetchPackages();
+        const distroData = await fetchDistros();
+        if (!ignore) {
+          setPackages(packageData);
+          setDistros(distroData);
+        }
+      } catch (err) {
+        if (!ignore) setError(err.message);
+      } finally {
+        if (!ignore) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   function handleToggle(id) {
     setPackages((prev) =>
@@ -56,7 +84,7 @@ export default function App() {
 
   // derived values, not state
   const selectedCount = packages.filter((p) => p.selected).length;
-  const distro = INITIAL_DISTROS.find((d) => d.id === distroId);
+  const distro = distros.find((d) => d.id === distroId);
 
   return (
     <>
@@ -91,37 +119,48 @@ export default function App() {
       </header>
 
       <main className="container">
-        {page === "home" && <HomePage onGoTo={setPage} />}
-        {page === "distros" && (
-          <DistrosPage
-            distros={INITIAL_DISTROS}
-            distroId={distroId}
-            onChoose={handleChooseDistro}
-          />
+        {loading && <p className="info">Loading packages...</p>}
+        {error && (
+          <p className="error">
+            Could not load the data: {error}. Did you run <code>npm run api</code>?
+          </p>
         )}
-        {page === "packages" && (
-          <PackagesPage
-            packages={packages}
-            distro={distro}
-            onToggle={handleToggle}
-            onDelete={handleDelete}
-          />
-        )}
-        {page === "customize" && (
-          <CustomizePage
-            packages={packages}
-            distro={distro}
-            onSelectNames={handleSelectNames}
-          />
-        )}
-        {page === "setup" && (
-          <SetupPage
-            packages={packages}
-            distros={INITIAL_DISTROS}
-            distro={distro}
-            onChangeDistro={setDistroId}
-            onToggle={handleToggle}
-          />
+
+        {!loading && !error && (
+          <>
+            {page === "home" && <HomePage onGoTo={setPage} />}
+            {page === "distros" && (
+              <DistrosPage
+                distros={distros}
+                distroId={distroId}
+                onChoose={handleChooseDistro}
+              />
+            )}
+            {page === "packages" && (
+              <PackagesPage
+                packages={packages}
+                distro={distro}
+                onToggle={handleToggle}
+                onDelete={handleDelete}
+              />
+            )}
+            {page === "customize" && (
+              <CustomizePage
+                packages={packages}
+                distro={distro}
+                onSelectNames={handleSelectNames}
+              />
+            )}
+            {page === "setup" && (
+              <SetupPage
+                packages={packages}
+                distros={distros}
+                distro={distro}
+                onChangeDistro={setDistroId}
+                onToggle={handleToggle}
+              />
+            )}
+          </>
         )}
       </main>
 
