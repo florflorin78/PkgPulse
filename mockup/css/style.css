@@ -1,6 +1,6 @@
 /* ==========================================
    Root Variables & Color Palette
-   ================================---------- */
+   ========================================== */
 :root {
     --bg-color: #1e1e2e;    
     --card-bg: #181825;      
@@ -13,7 +13,7 @@
 
 /* ==========================================
    Global Reset & Base Styles
-   ================================---------- */
+   ========================================== */
 * {
     box-sizing: border-box;
 }
@@ -29,7 +29,7 @@ body {
 
 /* ==========================================
    Header Section
-   ================================---------- */
+   ========================================== */
 header {
     background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
@@ -51,21 +51,8 @@ header p {
 }
 
 /* ==========================================
-   Main Layout (CSS Grid - 2 Columns)
-   ================================---------- */
-/* main {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 24px;
-    align-items: start;
-} */
-
-/* ==========================================
    Panels & Form Styling
-   ================================---------- */
+   ========================================== */
 .panel {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -120,7 +107,7 @@ header p {
 
 /* ==========================================
    Items List & Card Styles (Flexbox)
-   ================================---------- */
+   ========================================== */
 .item-list {
     list-style: none;
     padding: 0;
@@ -160,7 +147,7 @@ header p {
 
 /* ==========================================
    Navigation Bar & Search Bar Additions
-   ================================---------- */
+   ========================================== */
 .navbar {
     background: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
@@ -258,16 +245,13 @@ header p {
 
 /* ==========================================
    Accessibility & Responsive Media Query
-   ================================---------- */
+   ========================================== */
 :focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
 @media (max-width: 700px) {
-    main {
-        grid-template-columns: 1fr;
-    }
     .packages-grid {
         grid-template-columns: 1fr;
     }
@@ -275,7 +259,7 @@ header p {
 
 /* ==========================================
    Distro Portal View Styles
-   ================================---------- */
+   ========================================== */
 .portal-view {
     grid-column: 1 / -1;
 }
@@ -321,7 +305,7 @@ header p {
 
 /* ==========================================
    Footer
-   ================================---------- */
+   ========================================== */
 .app-footer {
     text-align: center;
     padding: 20px;
@@ -333,7 +317,7 @@ header p {
 
 /* ==========================================
    My Packages Section
-   ================================---------- */
+   ========================================== */
 .packages-section {
     max-width: 900px;
     margin: 40px auto;
