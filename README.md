@@ -26,14 +26,15 @@ Sample data used across all stages:
 ```
 cd frontend
 npm install
-npm run dev
+npm run api    # terminal 1, http://localhost:3001
+npm run dev    # terminal 2, http://localhost:5173
 ```
 
 ## AI usage
 | Tool | Used for |
 | -------------- | ----------------------------------------- |
 | Gemini | Structuring the project template (stages 1-3) |
-| Claude | Components (stage 4), state, theme and API loading (stage 5) |
+| Claude | Components (stage 4), state, theme and API loading (stages 5-6) |
 
 Details per stage: see the ai-log/ folder.
 
@@ -81,13 +82,31 @@ My Setup (the final install command).
 | ID | Requirement | Where (permalink) | How to check |
 | ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
 | S5-R1 | list kept in useState, in App | frontend/src/App.jsx#L23 | read |
-| S5-R2 | toggling changes state and card look | frontend/src/App.jsx#L28-L32, frontend/src/components/PackageCard.jsx#L12-L18 | click a checkbox |
-| S5-R3 | delete removes the item | frontend/src/App.jsx#L34-L36, frontend/src/components/PackageCard.jsx#L32-L38 | click Delete |
-| S5-R4 | header counter derived, not in state | frontend/src/App.jsx#L58 | toggle, watch header |
-| S5-R5 | immutable updates (no push, splice, assignment) | frontend/src/App.jsx#L28-L44 | read |
-| S5-R6 | light / dark toggle: state + data-theme on html | frontend/src/App.jsx#L51-L55, frontend/src/App.css#L15-L37 | click the button, both system themes |
+| S5-R2 | toggling changes state and card look | frontend/src/App.jsx#L56-L60, frontend/src/components/PackageCard.jsx#L12-L18 | click a checkbox |
+| S5-R3 | delete removes the item | frontend/src/App.jsx#L62-L64, frontend/src/components/PackageCard.jsx#L32-L38 | click Delete |
+| S5-R4 | header counter derived, not in state | frontend/src/App.jsx#L86 | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | frontend/src/App.jsx#L56-L72 | read |
+| S5-R6 | light / dark toggle: state + data-theme on html | frontend/src/App.jsx#L79-L83, frontend/src/App.css#L17-L43 | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | link to the commit | commit history |
+
+## Stage 6: data from a mock API
+The packages and the distros are served by json-server from `db.json`.
+The app fetches them on load and shows a loading state and an error state.
+
+    npm run api    # terminal 1, http://localhost:3001
+    npm run dev    # terminal 2, http://localhost:5173
+
+### Stage 6 checklist
+| ID | Requirement | Where (permalink) | How to check |
+| ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
+| S6-R1 | npm run api starts, route shows JSON | frontend/package.json#L11, frontend/db.json | open localhost:3001/packages |
+| S6-R2 | data no longer in React code | frontend/src/App.jsx#L23-L24 (useState([])) | read |
+| S6-R3 | loading message while waiting | frontend/src/App.jsx#L122 | --delay 4000 |
+| S6-R4 | error message when API is down | frontend/src/App.jsx#L123-L127 | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env | frontend/src/api.js#L1-L19, frontend/.env.example | search for fetch |
+| S6-R6 | README Stage 6 section + AI log | README.md, ai-log/etapa-06.md | read |
+| S6-R7 | commit "Stage 6" pushed | link to the commit | commit history |
 
 ## Status
 - [x] Stage 1: static mockup
@@ -95,4 +114,5 @@ My Setup (the final install command).
 - [x] Stage 3: Vite and React project
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
-- [ ] Stage 6: data from a mock API
+- [x] Stage 6: data from a mock API
+- [ ] Stage 7: form and validation

@@ -9,6 +9,8 @@
   --accent-soft: #ede9fe;
   --danger: #dc2626;
   --ok: #16a34a;
+  --error-bg: #fdf2f8;
+  --error-border: #fbcfe8;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
@@ -21,6 +23,8 @@
     --muted: #9ca3af;
     --border: #352f4d;
     --accent-soft: #2a2342;
+    --error-bg: #3b1d2e;
+    --error-border: #6b2a4a;
     --shadow: none;
   }
 }
@@ -33,6 +37,8 @@
   --muted: #9ca3af;
   --border: #352f4d;
   --accent-soft: #2a2342;
+  --error-bg: #3b1d2e;
+  --error-border: #6b2a4a;
   --shadow: none;
 }
 
@@ -513,6 +519,19 @@ h2 {
   background: #111827;
   color: #a7f3d0;
   white-space: pre-wrap;
+}
+
+/* loading and error */
+.info {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--danger);
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  border-radius: 8px;
+  padding: 10px 12px;
 }
 
 .app-footer {
