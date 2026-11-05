@@ -1,17 +1,17 @@
-// DistroCard — shows one linux distribution in the grid
-export default function DistroCard({ distro, onClick }) {
+export default function DistroCard({ distro, isChosen, onChoose }) {
   return (
     <button
-      className="panel distro-card"
-      onClick={() => onClick(distro)}
-      aria-label={`Open ${distro.name} portal`}
+      className={isChosen ? "card distro-card chosen" : "card distro-card"}
+      onClick={() => onChoose(distro.id)}
+      aria-pressed={isChosen}
     >
-      <span className="distro-icon">{distro.icon}</span>
-      <h2 style={{ color: distro.color }}>{distro.name}</h2>
-      <p className="distro-info">{distro.info}</p>
-      <span className={`difficulty-badge difficulty-${distro.difficulty?.toLowerCase()}`}>
-        {distro.difficulty}
-      </span>
+      <span className="big-icon">{distro.icon}</span>
+      <h3 style={{ color: distro.color }}>{distro.name}</h3>
+      <span className={`badge level-${distro.level.toLowerCase()}`}>{distro.level}</span>
+      <p className="for-who">For: {distro.forWho}</p>
+      <p>{distro.description}</p>
+      <p className="muted">Package manager: {distro.manager}</p>
+      {isChosen && <p className="chosen-text">✓ Your choice</p>}
     </button>
   );
 }
