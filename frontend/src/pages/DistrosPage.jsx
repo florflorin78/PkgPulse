@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { searchByName } from "../helpers.js";
-import DistroCard from "./DistroCard.jsx";
+import DistroCard from "../components/DistroCard.jsx";
 
 export default function DistrosPage({ distros, distroId, onChoose }) {
   const [search, setSearch] = useState("");

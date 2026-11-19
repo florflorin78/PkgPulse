@@ -1,0 +1,45 @@
+.distroSelect select {
+  padding: 8px;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.setup {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 16px;
+  margin-top: 16px;
+  align-items: start;
+}
+
+.selectedList {
+  list-style: none;
+  padding: 0;
+}
+
+.selectedList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.remove {
+  border: none;
+  background: transparent;
+  color: var(--danger);
+}
+
+.script {
+  padding: 12px;
+  border-radius: 8px;
+  background: #111827;
+  color: #a7f3d0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 700px) {
+  .setup {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import { installCommand, isAvailable } from "../helpers.js";
+import styles from "./PackageCard.module.css";
 
 export default function PackageCard({ pkg, distro, onToggle, onDelete }) {
   let installInfo = <p className="muted">Choose a distro to see the install command.</p>;
@@ -10,26 +12,31 @@ export default function PackageCard({ pkg, distro, onToggle, onDelete }) {
 
   return (
     <li
-      className={pkg.selected ? "package-card selected" : "package-card"}
+      className={pkg.selected ? `${styles.card} ${styles.selected}` : styles.card}
       data-testid="item"
       data-id={pkg.id}
     >
-      <label className="package-main">
+      <div className={styles.main}>
         <input
           type="checkbox"
           checked={pkg.selected}
           onChange={() => onToggle(pkg.id)}
+          aria-label={`Select ${pkg.name}`}
           data-testid="item-toggle"
         />
         <div>
-          <h3 data-testid="item-title">{pkg.name}</h3>
+          <h3 className={styles.title}>
+            <Link to={`/packages/${pkg.id}`} data-testid="item-link">
+              {pkg.name}
+            </Link>
+          </h3>
           <span className={`badge badge-${pkg.type}`}>{pkg.type}</span>
           {pkg.recommended && <span className="badge badge-recommended">recommended</span>}
         </div>
-      </label>
+      </div>
 
       <p>{pkg.description}</p>
-      <p className="why">
+      <p className={styles.why}>
         <strong>Why install it?</strong> {pkg.why}
       </p>
       {installInfo}

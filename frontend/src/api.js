@@ -34,3 +34,7 @@ export function updatePackage(id, changes) {
 export function deletePackage(id) {
   return request(`/packages/${id}`, { method: "DELETE" });
 }
+
+export function fetchPackage(id) {
+  return request(`/packages/${id}`);
+}

@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+import styles from "./AboutPage.module.css";
+
 const REASONS = [
   { icon: "💸", title: "Free forever", text: "No license, no subscription. You own your computer again." },
   { icon: "💻", title: "Revives old laptops", text: "Light distros run fast on hardware that Windows gave up on." },
@@ -12,22 +15,22 @@ const STEPS = [
   "Copy one command and run it after install",
 ];
 
-export default function HomePage({ onGoTo }) {
+export default function AboutPage() {
   return (
     <>
-      <section className="hero">
+      <section className={styles.hero}>
         <h1>Your computer. Your rules. Try Linux.</h1>
         <p>
           New to Linux? PkgPulse helps you pick a distro, tells you which apps to
           install and why, and gives you one command that installs everything.
         </p>
-        <div className="hero-buttons">
-          <button className="btn-primary" onClick={() => onGoTo("distros")}>
+        <div className={styles.buttons}>
+          <Link to="/distros" className="btn-primary">
             Find my distro
-          </button>
-          <button className="btn-secondary" onClick={() => onGoTo("customize")}>
+          </Link>
+          <Link to="/customize" className="btn-secondary">
             Customize my desktop
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -48,6 +51,8 @@ export default function HomePage({ onGoTo }) {
           <li key={step}>{step}</li>
         ))}
       </ol>
+
+      <p className="muted">Built with React, Vite, React Router and json-server.</p>
     </>
   );
 }

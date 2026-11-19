@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import {
   createPackage,
   deletePackage,
@@ -6,33 +7,23 @@ import {
   fetchPackages,
   updatePackage,
 } from "./api.js";
-import HomePage from "./components/HomePage.jsx";
-import DistrosPage from "./components/DistrosPage.jsx";
-import PackagesPage from "./components/PackagesPage.jsx";
-import CustomizePage from "./components/CustomizePage.jsx";
-import SetupPage from "./components/SetupPage.jsx";
-
-const PAGES = [
-  { id: "home", label: "Home" },
-  { id: "distros", label: "Distros" },
-  { id: "packages", label: "Packages" },
-  { id: "customize", label: "Customize" },
-  { id: "setup", label: "My Setup" },
-];
-
-// start with the OS theme
-function startTheme() {
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
+import { MANAGERS } from "./constants.js";
+import Layout from "./components/Layout.jsx";
+import PackagesPage from "./pages/PackagesPage.jsx";
+import PackageDetailPage from "./pages/PackageDetailPage.jsx";
+import DistrosPage from "./pages/DistrosPage.jsx";
+import CustomizePage from "./pages/CustomizePage.jsx";
+import SetupPage from "./pages/SetupPage.jsx";
+import AboutPage from "./pages/AboutPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 export default function App() {
   const [packages, setPackages] = useState([]);
   const [distros, setDistros] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [theme, setTheme] = useState(startTheme);
-  const [page, setPage] = useState("packages");
   const [distroId, setDistroId] = useState(null);
+  const navigate = useNavigate();
 
   // load the data once, on mount
   useEffect(() => {
@@ -64,7 +55,7 @@ export default function App() {
       ...data,
       selected: false,
       recommended: false,
-      managers: ["apt", "dnf", "zypper", "pacman"],
+      managers: MANAGERS,
       description: "A package you added yourself.",
       why: "You added it to your own list.",
     };
@@ -101,7 +92,7 @@ export default function App() {
         const updated = await updatePackage(pkg.id, { selected: true });
         setPackages((prev) => prev.map((p) => (p.id === pkg.id ? updated : p)));
       }
-      setPage("setup");
+      navigate("/setup");
     } catch (err) {
       setError(err.message);
     }
@@ -109,13 +100,7 @@ export default function App() {
 
   function handleChooseDistro(id) {
     setDistroId(id);
-    setPage("packages");
-  }
-
-  function handleTheme() {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    document.documentElement.dataset.theme = newTheme;
+    navigate("/");
   }
 
   // derived values, not state
@@ -123,89 +108,51 @@ export default function App() {
   const distro = distros.find((d) => d.id === distroId);
 
   return (
-    <>
-      <header className="app-header">
-        <button className="brand" onClick={() => setPage("home")}>
-          🐧 PkgPulse
-        </button>
-
-        <nav>
-          {PAGES.map((p) => (
-            <button
-              key={p.id}
-              className={page === p.id ? "nav-btn active" : "nav-btn"}
-              onClick={() => setPage(p.id)}
-            >
-              {p.label}
-            </button>
-          ))}
-        </nav>
-
-        <p className="app-count">
-          {packages.length} packages, {selectedCount} selected
-        </p>
-
-        <button
-          className="theme-toggle"
-          onClick={handleTheme}
-          aria-pressed={theme === "dark"}
-        >
-          {theme === "dark" ? "Light mode" : "Dark mode"}
-        </button>
-      </header>
-
-      <main className="container">
-        {loading && (
-          <p className="info" data-testid="loading">
-            Loading packages...
-          </p>
-        )}
-        {error && (
-          <p className="error" data-testid="error">
-            Something went wrong: {error}. Is the API running? (<code>npm run api</code>)
-          </p>
-        )}
-
-        {!loading && (
-          <>
-            {page === "home" && <HomePage onGoTo={setPage} />}
-            {page === "distros" && (
-              <DistrosPage
-                distros={distros}
-                distroId={distroId}
-                onChoose={handleChooseDistro}
-              />
-            )}
-            {page === "packages" && (
-              <PackagesPage
-                packages={packages}
-                distro={distro}
-                onAdd={handleAdd}
-                onToggle={handleToggle}
-                onDelete={handleDelete}
-              />
-            )}
-            {page === "customize" && (
-              <CustomizePage
-                packages={packages}
-                distro={distro}
-                onSelectNames={handleSelectNames}
-              />
-            )}
-            {page === "setup" && (
-              <SetupPage
-                packages={packages}
-                distros={distros}
-                distro={distro}
-                onChangeDistro={setDistroId}
-                onToggle={handleToggle}
-              />
-            )}
-          </>
-        )}
-      </main>
-
-      <footer className="app-footer">PkgPulse · Web Technologies project · 2026</footer>
-    </>
+    <Routes>
+      <Route
+        element={<Layout total={packages.length} selected={selectedCount} error={error} />}
+      >
+        <Route
+          path="/"
+          element={
+            <PackagesPage
+              packages={packages}
+              distro={distro}
+              loading={loading}
+              onAdd={handleAdd}
+              onToggle={handleToggle}
+              onDelete={handleDelete}
+            />
+          }
+        />
+        <Route path="/packages/:id" element={<PackageDetailPage distros={distros} />} />
+        <Route
+          path="/distros"
+          element={
+            <DistrosPage distros={distros} distroId={distroId} onChoose={handleChooseDistro} />
+          }
+        />
+        <Route
+          path="/customize"
+          element={
+            <CustomizePage packages={packages} distro={distro} onSelectNames={handleSelectNames} />
+          }
+        />
+        <Route
+          path="/setup"
+          element={
+            <SetupPage
+              packages={packages}
+              distros={distros}
+              distro={distro}
+              onChangeDistro={setDistroId}
+              onToggle={handleToggle}
+            />
+          }
+        />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Route>
+    </Routes>
   );
 }

@@ -1,0 +1,97 @@
+.customize {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+}
+
+.pieces h3 {
+  margin: 12px 0 6px;
+  font-size: 1rem;
+}
+
+.pieceRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.piece {
+  padding: 6px 12px;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  cursor: grab;
+}
+
+.active {
+  border-style: solid;
+  border-color: var(--accent);
+}
+
+.desktop {
+  min-height: 320px;
+  border-radius: 12px;
+  padding: 10px;
+  border: 3px solid transparent;
+}
+
+.over {
+  border-color: var(--accent);
+}
+
+.fakeBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--rice);
+  font-size: 0.85rem;
+}
+
+.windows {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.fakeWindow {
+  min-height: 200px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--rice);
+  color: #e5e7eb;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+.fakeWindow p {
+  margin: 0 0 6px;
+}
+
+.windowTitle {
+  color: var(--rice);
+  font-weight: 700;
+}
+
+/* hyprland: gaps and rounded corners */
+.hyprland {
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.hyprland .fakeWindow {
+  border-radius: 12px;
+}
+
+.warningList {
+  color: #b45309;
+  padding-left: 18px;
+}
+
+@media (max-width: 700px) {
+  .customize {
+    grid-template-columns: 1fr;
+  }
+}

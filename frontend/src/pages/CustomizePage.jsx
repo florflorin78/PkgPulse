@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { isAvailable } from "../helpers.js";
+import styles from "./CustomizePage.module.css";
 
 const SLOTS = [
   { id: "wallpaper", label: "Wallpaper" },
@@ -103,16 +104,16 @@ export default function CustomizePage({ packages, distro, onSelectNames }) {
         <strong>ricing</strong>: making Linux look exactly how you want.
       </p>
 
-      <div className="customize">
-        <div className="pieces">
+      <div className={styles.customize}>
+        <div className={styles.pieces}>
           {SLOTS.map((slot) => (
             <div key={slot.id}>
               <h3>{slot.label}</h3>
-              <div className="piece-row">
+              <div className={styles.pieceRow}>
                 {PIECES.filter((p) => p.slot === slot.id).map((p) => (
                   <div
                     key={p.id}
-                    className={rice[slot.id] === p.id ? "piece active" : "piece"}
+                    className={rice[slot.id] === p.id ? `${styles.piece} ${styles.active}` : styles.piece}
                     draggable="true"
                     onDragStart={(e) => handleDragStart(e, p.id)}
                     onClick={() => placePiece(p.id)}
@@ -127,25 +128,25 @@ export default function CustomizePage({ packages, distro, onSelectNames }) {
 
         <div>
           <div
-            className={isOver ? "desktop over" : "desktop"}
+            className={isOver ? `${styles.desktop} ${styles.over}` : styles.desktop}
             style={{ background: wallpaper.value, "--rice": colors.value }}
             onDragOver={handleDragOver}
             onDragLeave={() => setIsOver(false)}
             onDrop={handleDrop}
           >
-            <div className="fake-bar">
+            <div className={styles.fakeBar}>
               <span>{bar.name}</span>
               <span>1 2 3</span>
               <span>12:00</span>
             </div>
-            <div className={`windows wm-${wm.id}`}>
-              <div className="fake-window">
-                <p className="window-title">{terminal.name}</p>
+            <div className={wm.id === "hyprland" ? `${styles.windows} ${styles.hyprland}` : styles.windows}>
+              <div className={styles.fakeWindow}>
+                <p className={styles.windowTitle}>{terminal.name}</p>
                 <p>user@linux:~$ fastfetch</p>
                 <p>🐧 {distro ? distro.name : "Linux"} · {wm.name}</p>
               </div>
-              <div className="fake-window">
-                <p className="window-title">{launcher.name}</p>
+              <div className={styles.fakeWindow}>
+                <p className={styles.windowTitle}>{launcher.name}</p>
                 <p>🔍 Type to search apps...</p>
               </div>
             </div>
@@ -154,7 +155,7 @@ export default function CustomizePage({ packages, distro, onSelectNames }) {
           {warnings.length === 0 ? (
             <p className="ok">✓ All pieces work together.</p>
           ) : (
-            <ul className="warning-list">
+            <ul className={styles.warningList}>
               {warnings.map((w) => (
                 <li key={w}>⚠ {w}</li>
               ))}

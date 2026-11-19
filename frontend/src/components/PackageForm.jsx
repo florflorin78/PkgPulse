@@ -1,8 +1,6 @@
 import { useState } from "react";
-
-const TYPES = ["package", "configuration", "script"];
-const CATEGORIES = ["Interface & Tiling", "Terminal & Shell", "Apps", "System packages"];
-const NAME_MAX = 100;
+import { CATEGORIES, NAME_MAX, TYPES } from "../constants.js";
+import styles from "./PackageForm.module.css";
 
 export default function PackageForm({ onAdd }) {
   const [name, setName] = useState("");
@@ -53,7 +51,7 @@ export default function PackageForm({ onAdd }) {
   }
 
   return (
-    <form className="package-form" onSubmit={handleSubmit} noValidate data-testid="form">
+    <form className={styles.form} onSubmit={handleSubmit} noValidate data-testid="form">
       <label>
         Name
         <input
@@ -114,7 +112,7 @@ export default function PackageForm({ onAdd }) {
       </button>
 
       {error && (
-        <p className="error form-error" data-testid="form-error">
+        <p className={`error ${styles.formError}`} data-testid="form-error">
           {error.message}
         </p>
       )}

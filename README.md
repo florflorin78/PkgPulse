@@ -34,7 +34,7 @@ npm run dev    # terminal 2, http://localhost:5173
 | Tool | Used for |
 | -------------- | ----------------------------------------- |
 | Gemini | Structuring the project template (stages 1-3) |
-| Claude | Components (stage 4), state, theme and API loading (stages 5-6), form and validation (stage 7) |
+| Claude | Components (stage 4), state, theme and API loading (stages 5-6), form and validation (stage 7), routing and CSS Modules (stage 8) |
 
 Details per stage: see the ai-log/ folder.
 
@@ -126,6 +126,35 @@ in the list, so it is still there after a refresh. `tw.json` and the
 | S7-R7 | README Stage 7 section + AI log | README.md, ai-log/etapa-07.md | read |
 | S7-R8 | commit "Stage 7" pushed | link to the commit | commit history |
 
+## Stage 8: routing and detail page
+Three pages behind React Router: the package list, a detail page at
+`/packages/:id` and an about page, plus a 404 page for unknown addresses.
+The header and the footer are written once in `Layout`. The styles moved
+from one big `App.css` to CSS Modules, one file next to each component;
+`index.css` keeps only the colors and the shared classes.
+
+| Address | Page |
+| ------------- | ------------------------------------------- |
+| / | package list, search, filters and the add form |
+| /packages/:id | detail of one package, with the command for every package manager |
+| /distros | choose a distro |
+| /customize | drag and drop desktop |
+| /setup | selected packages and the install command |
+| /about | why Linux and how the site works |
+| * | page not found |
+
+### Stage 8 checklist
+| ID | Requirement | Where (permalink) | How to check |
+| ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
+| S8-R1 | header navigation changes the page without reload | frontend/src/App.jsx#L111-L155, frontend/src/components/Layout.jsx#L38-L46 | click the links, watch Network |
+| S8-R2 | click on an item opens its detail page | frontend/src/components/PackageCard.jsx#L29-L31, frontend/src/pages/PackageDetailPage.jsx | click a title |
+| S8-R3 | refresh on the detail address works; a missing id shows an error | frontend/src/pages/PackageDetailPage.jsx#L8-L35, frontend/src/pages/PackageDetailPage.jsx#L45-L54 | refresh /packages/1, open /packages/999 |
+| S8-R4 | unknown address shows the 404 page of the app | frontend/src/App.jsx#L154, frontend/src/pages/NotFoundPage.jsx | open /ceva |
+| S8-R5 | each component has its .module.css; index.css only shared styles | frontend/src/components, frontend/src/pages, frontend/src/index.css | read |
+| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /packages/:id | frontend/src/components/Layout.jsx#L38, frontend/src/components/PackageCard.jsx#L16-L48, frontend/src/pages/PackageDetailPage.jsx#L59-L63 | querySelector in the console |
+| S8-R7 | README Stage 8 section + AI log | README.md, ai-log/etapa-08.md | read |
+| S8-R8 | commit "Stage 8" pushed | link to the commit | commit history |
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
@@ -134,4 +163,5 @@ in the list, so it is still there after a refresh. `tw.json` and the
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
 - [x] Stage 7: form and validation
-- [ ] Stage 8: routing and detail page
+- [x] Stage 8: routing and detail page
+- [ ] Stage 9: own backend with Express

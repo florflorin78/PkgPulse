@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { installCommand, isAvailable, updateCommand } from "../helpers.js";
+import styles from "./SetupPage.module.css";
 
 export default function SetupPage({ packages, distros, distro, onChangeDistro, onToggle }) {
   const [copied, setCopied] = useState(false);
@@ -25,7 +26,7 @@ export default function SetupPage({ packages, distros, distro, onChangeDistro, o
     <>
       <h2>My Setup</h2>
 
-      <label className="distro-select">
+      <label className={styles.distroSelect}>
         My distro:{" "}
         <select value={distro ? distro.id : ""} onChange={(e) => onChangeDistro(e.target.value)}>
           <option value="" disabled>
@@ -39,18 +40,18 @@ export default function SetupPage({ packages, distros, distro, onChangeDistro, o
         </select>
       </label>
 
-      <div className="setup">
+      <div className={styles.setup}>
         <section className="card">
           <h3>Selected packages ({selected.length})</h3>
           {selected.length === 0 ? (
             <p className="empty">Nothing selected yet. Go to Packages or Customize.</p>
           ) : (
-            <ul className="selected-list">
+            <ul className={styles.selectedList}>
               {selected.map((p) => (
                 <li key={p.id}>
                   {p.name}
                   <button
-                    className="btn-small"
+                    className={styles.remove}
                     onClick={() => onToggle(p.id)}
                     aria-label={`Remove ${p.name} from setup`}
                   >
@@ -66,7 +67,7 @@ export default function SetupPage({ packages, distros, distro, onChangeDistro, o
           <h3>Your install command</h3>
           {distro ? (
             <>
-              <pre className="script">{script}</pre>
+              <pre className={styles.script}>{script}</pre>
               <button className="btn-primary" onClick={handleCopy}>
                 {copied ? "✓ Copied!" : "Copy"}
               </button>
