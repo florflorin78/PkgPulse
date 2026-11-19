@@ -184,6 +184,11 @@ h2 {
   color: var(--danger);
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* home */
 .hero {
   text-align: center;
@@ -330,6 +335,50 @@ h2 {
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
+}
+
+/* add package form */
+.add-package {
+  margin: 16px 0;
+}
+
+.add-package h3 {
+  margin-top: 0;
+}
+
+.package-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.package-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.package-form input,
+.package-form select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-weight: 400;
+}
+
+.package-form input[aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.form-error {
+  width: 100%;
+  margin: 0;
 }
 
 /* packages */

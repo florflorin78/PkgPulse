@@ -27,3 +27,4 @@
 - `onClick={onDelete(pkg.id)}` calls the function while rendering and empties the list; it must be `onClick={() => onDelete(pkg.id)}`.
 - A checkbox with `checked` and no `onChange` becomes read-only and shows a warning.
 - Changing the array in place (`push`, `p.selected = true`) does not update the page.
+- After the review S5-R5 was marked as not done: `warnings.push(...)` in `CustomizePage` was found, even if it was a local array and not state. I rewrote it with `filter` and `map`, so there is no `push` left in the project.

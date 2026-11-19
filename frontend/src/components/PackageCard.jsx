@@ -9,15 +9,20 @@ export default function PackageCard({ pkg, distro, onToggle, onDelete }) {
   }
 
   return (
-    <li className={pkg.selected ? "package-card selected" : "package-card"}>
+    <li
+      className={pkg.selected ? "package-card selected" : "package-card"}
+      data-testid="item"
+      data-id={pkg.id}
+    >
       <label className="package-main">
         <input
           type="checkbox"
           checked={pkg.selected}
           onChange={() => onToggle(pkg.id)}
+          data-testid="item-toggle"
         />
         <div>
-          <h3>{pkg.name}</h3>
+          <h3 data-testid="item-title">{pkg.name}</h3>
           <span className={`badge badge-${pkg.type}`}>{pkg.type}</span>
           {pkg.recommended && <span className="badge badge-recommended">recommended</span>}
         </div>
@@ -33,6 +38,7 @@ export default function PackageCard({ pkg, distro, onToggle, onDelete }) {
         className="btn-danger"
         onClick={() => onDelete(pkg.id)}
         aria-label={`Delete ${pkg.name}`}
+        data-testid="item-delete"
       >
         Delete
       </button>

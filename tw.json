@@ -1,0 +1,6 @@
+{
+  "resource": "packages",
+  "title": "name",
+  "done": "selected",
+  "sample": { "install": "htop", "type": "package", "category": "Apps" }
+}

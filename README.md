@@ -34,7 +34,7 @@ npm run dev    # terminal 2, http://localhost:5173
 | Tool | Used for |
 | -------------- | ----------------------------------------- |
 | Gemini | Structuring the project template (stages 1-3) |
-| Claude | Components (stage 4), state, theme and API loading (stages 5-6) |
+| Claude | Components (stage 4), state, theme and API loading (stages 5-6), form and validation (stage 7) |
 
 Details per stage: see the ai-log/ folder.
 
@@ -85,7 +85,7 @@ My Setup (the final install command).
 | S5-R2 | toggling changes state and card look | frontend/src/App.jsx#L56-L60, frontend/src/components/PackageCard.jsx#L12-L18 | click a checkbox |
 | S5-R3 | delete removes the item | frontend/src/App.jsx#L62-L64, frontend/src/components/PackageCard.jsx#L32-L38 | click Delete |
 | S5-R4 | header counter derived, not in state | frontend/src/App.jsx#L86 | toggle, watch header |
-| S5-R5 | immutable updates (no push, splice, assignment) | frontend/src/App.jsx#L56-L72 | read |
+| S5-R5 | immutable updates (no push, splice, assignment) | frontend/src/App.jsx#L56-L72, frontend/src/components/CustomizePage.jsx#L81-L96 | read, search for push |
 | S5-R6 | light / dark toggle: state + data-theme on html | frontend/src/App.jsx#L79-L83, frontend/src/App.css#L17-L43 | click the button, both system themes |
 | S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
 | S5-R8 | commit "Stage 5" pushed | link to the commit | commit history |
@@ -108,6 +108,24 @@ The app fetches them on load and shows a loading state and an error state.
 | S6-R6 | README Stage 6 section + AI log | README.md, ai-log/etapa-06.md | read |
 | S6-R7 | commit "Stage 6" pushed | link to the commit | commit history |
 
+## Stage 7: form and validation
+Packages can be added from the page. The form is controlled and validated,
+and every change (add, toggle, delete) goes to the API before it shows up
+in the list, so it is still there after a refresh. `tw.json` and the
+`data-testid` attributes are used by the automatic check of the course.
+
+### Stage 7 checklist
+| ID | Requirement | Where (permalink) | How to check |
+| ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
+| S7-R1 | controlled form: value + onChange on every field | frontend/src/components/PackageForm.jsx#L56-L112 | read |
+| S7-R2 | empty name shows an error, nothing is sent | frontend/src/components/PackageForm.jsx#L15-L31 | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | frontend/src/App.jsx#L62-L73, frontend/src/api.js#L3-L25 | add, refresh |
+| S7-R4 | toggle and delete survive refresh | frontend/src/App.jsx#L75-L94 | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | frontend/src/components/PackageForm.jsx#L33-L53, frontend/src/components/PackageForm.jsx#L112 | --delay 3000, stop the API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | tw.json, frontend/src/components/PackageCard.jsx#L14-L41 | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | README.md, ai-log/etapa-07.md | read |
+| S7-R8 | commit "Stage 7" pushed | link to the commit | commit history |
+
 ## Status
 - [x] Stage 1: static mockup
 - [x] Stage 2: data logic in JavaScript
@@ -115,4 +133,5 @@ The app fetches them on load and shows a loading state and an error state.
 - [x] Stage 4: components rendered from data
 - [x] Stage 5: local state and events
 - [x] Stage 6: data from a mock API
-- [ ] Stage 7: form and validation
+- [x] Stage 7: form and validation
+- [ ] Stage 8: routing and detail page

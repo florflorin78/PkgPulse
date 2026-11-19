@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchDistros, fetchPackages } from "./api.js";
+import {
+  createPackage,
+  deletePackage,
+  fetchDistros,
+  fetchPackages,
+  updatePackage,
+} from "./api.js";
 import HomePage from "./components/HomePage.jsx";
 import DistrosPage from "./components/DistrosPage.jsx";
 import PackagesPage from "./components/PackagesPage.jsx";
@@ -25,7 +31,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [theme, setTheme] = useState(startTheme);
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("packages");
   const [distroId, setDistroId] = useState(null);
 
   // load the data once, on mount
@@ -53,22 +59,52 @@ export default function App() {
     };
   }, []);
 
-  function handleToggle(id) {
-    setPackages((prev) =>
-      prev.map((p) => (p.id === id ? { ...p, selected: !p.selected } : p))
-    );
+  async function handleAdd(data) {
+    const newPackage = {
+      ...data,
+      selected: false,
+      recommended: false,
+      managers: ["apt", "dnf", "zypper", "pacman"],
+      description: "A package you added yourself.",
+      why: "You added it to your own list.",
+    };
+    const created = await createPackage(newPackage);
+    setPackages((prev) => [...prev, created]);
   }
 
-  function handleDelete(id) {
-    setPackages((prev) => prev.filter((p) => p.id !== id));
+  async function handleToggle(id) {
+    const pkg = packages.find((p) => p.id === id);
+    try {
+      const updated = await updatePackage(id, { selected: !pkg.selected });
+      setPackages((prev) => prev.map((p) => (p.id === id ? updated : p)));
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
+  async function handleDelete(id) {
+    try {
+      await deletePackage(id);
+      setPackages((prev) => prev.filter((p) => p.id !== id));
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   // used by the Customize page
-  function handleSelectNames(names) {
-    setPackages((prev) =>
-      prev.map((p) => (names.includes(p.name) ? { ...p, selected: true } : p))
-    );
-    setPage("setup");
+  async function handleSelectNames(names) {
+    const toSelect = packages.filter((p) => names.includes(p.name) && !p.selected);
+    try {
+      for (const pkg of toSelect) {
+        const updated = await updatePackage(pkg.id, { selected: true });
+        setPackages((prev) => prev.map((p) => (p.id === pkg.id ? updated : p)));
+      }
+      setPage("setup");
+    } catch (err) {
+      setError(err.message);
+    }
   }
 
   function handleChooseDistro(id) {
@@ -119,14 +155,18 @@ export default function App() {
       </header>
 
       <main className="container">
-        {loading && <p className="info">Loading packages...</p>}
+        {loading && (
+          <p className="info" data-testid="loading">
+            Loading packages...
+          </p>
+        )}
         {error && (
-          <p className="error">
-            Could not load the data: {error}. Did you run <code>npm run api</code>?
+          <p className="error" data-testid="error">
+            Something went wrong: {error}. Is the API running? (<code>npm run api</code>)
           </p>
         )}
 
-        {!loading && !error && (
+        {!loading && (
           <>
             {page === "home" && <HomePage onGoTo={setPage} />}
             {page === "distros" && (
@@ -140,6 +180,7 @@ export default function App() {
               <PackagesPage
                 packages={packages}
                 distro={distro}
+                onAdd={handleAdd}
                 onToggle={handleToggle}
                 onDelete={handleDelete}
               />

@@ -78,22 +78,22 @@ export default function CustomizePage({ packages, distro, onSelectNames }) {
   const terminal = getPiece(rice.terminal);
   const launcher = getPiece(rice.launcher);
 
-  // check if the pieces work together
-  const warnings = [];
-  for (const piece of [bar, terminal, launcher]) {
-    if (piece.display !== "both" && piece.display !== wm.display) {
-      warnings.push(`${piece.name} needs ${piece.display}, but ${wm.name} runs on ${wm.display}.`);
-    }
-  }
   const names = [wm.name, bar.name, terminal.name, launcher.name];
-  if (distro) {
-    for (const name of names) {
-      const pkg = packages.find((p) => p.name === name);
-      if (pkg && !isAvailable(pkg, distro)) {
-        warnings.push(`${name} is not in the official ${distro.name} repos.`);
-      }
-    }
-  }
+
+  // check if the pieces work together
+  const displayWarnings = [bar, terminal, launcher]
+    .filter((piece) => piece.display !== "both" && piece.display !== wm.display)
+    .map((piece) => `${piece.name} needs ${piece.display}, but ${wm.name} runs on ${wm.display}.`);
+
+  const missingNames = names.filter((name) => {
+    const pkg = packages.find((p) => p.name === name);
+    return distro && pkg && !isAvailable(pkg, distro);
+  });
+  const repoWarnings = missingNames.map(
+    (name) => `${name} is not in the official ${distro.name} repos.`
+  );
+
+  const warnings = [...displayWarnings, ...repoWarnings];
 
   return (
     <>

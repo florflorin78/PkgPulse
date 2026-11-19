@@ -611,6 +611,23 @@
       ],
       "description": "A simple firewall.",
       "why": "One command (sudo ufw enable) blocks unwanted connections."
+    },
+    {
+      "name": "dsdsa",
+      "install": "s",
+      "type": "package",
+      "category": "Apps",
+      "selected": false,
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A package you added yourself.",
+      "why": "You added it to your own list.",
+      "id": 32
     }
   ]
 }

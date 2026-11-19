@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { getCategories, searchByName } from "../helpers.js";
+import PackageForm from "./PackageForm.jsx";
 import PackageList from "./PackageList.jsx";
 
-export default function PackagesPage({ packages, distro, onToggle, onDelete }) {
+export default function PackagesPage({ packages, distro, onAdd, onToggle, onDelete }) {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("All");
   const [onlyRecommended, setOnlyRecommended] = useState(false);
@@ -27,6 +28,11 @@ export default function PackagesPage({ packages, distro, onToggle, onDelete }) {
       ) : (
         <p className="tip">Choose a distro first to see how to install each package.</p>
       )}
+
+      <section className="card add-package">
+        <h3>Add your own package</h3>
+        <PackageForm onAdd={onAdd} />
+      </section>
 
       <div className="filters">
         <input
