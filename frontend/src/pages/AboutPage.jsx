@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import usePageTitle from "../usePageTitle.js";
 import styles from "./AboutPage.module.css";
 
 const REASONS = [
@@ -16,6 +17,8 @@ const STEPS = [
 ];
 
 export default function AboutPage() {
+  usePageTitle("About");
+
   return (
     <>
       <section className={styles.hero}>
@@ -51,6 +54,14 @@ export default function AboutPage() {
           <li key={step}>{step}</li>
         ))}
       </ol>
+
+      <h2>Credits</h2>
+      <ul className={styles.credits}>
+        <li>All the pictures on this site are drawn by the site itself, with CSS and the desktop editor.</li>
+        <li>The videos belong to their creators and are played from YouTube.</li>
+        <li>Distro names and package names belong to their projects. PkgPulse is not part of any of them.</li>
+        <li>The trending list uses the DistroWatch page hit ranking and Linux news from November 2026.</li>
+      </ul>
 
       <p className="muted">Built with React, Vite, React Router and json-server.</p>
     </>

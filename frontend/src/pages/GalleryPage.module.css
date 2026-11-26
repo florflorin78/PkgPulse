@@ -1,0 +1,33 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  background: #111827;
+}
+
+.item figcaption {
+  padding: 12px 16px 16px;
+}
+
+.item h3 {
+  margin: 0 0 4px;
+}
+
+@media (max-width: 420px) {
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

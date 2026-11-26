@@ -7,13 +7,19 @@ import {
   fetchPackages,
   updatePackage,
 } from "./api.js";
-import { MANAGERS } from "./constants.js";
+import { MANAGERS } from "./data/constants.js";
+import { readSavedDistro, saveDistro } from "./helpers.js";
 import Layout from "./components/Layout.jsx";
 import PackagesPage from "./pages/PackagesPage.jsx";
 import PackageDetailPage from "./pages/PackageDetailPage.jsx";
 import DistrosPage from "./pages/DistrosPage.jsx";
+import DistroDetailPage from "./pages/DistroDetailPage.jsx";
 import CustomizePage from "./pages/CustomizePage.jsx";
 import SetupPage from "./pages/SetupPage.jsx";
+import GalleryPage from "./pages/GalleryPage.jsx";
+import LearnPage from "./pages/LearnPage.jsx";
+import GuidePage from "./pages/GuidePage.jsx";
+import QuizPage from "./pages/QuizPage.jsx";
 import AboutPage from "./pages/AboutPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
@@ -22,7 +28,7 @@ export default function App() {
   const [distros, setDistros] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [distroId, setDistroId] = useState(null);
+  const [distroId, setDistroId] = useState(readSavedDistro);
   const navigate = useNavigate();
 
   // load the data once, on mount
@@ -100,7 +106,14 @@ export default function App() {
 
   function handleChooseDistro(id) {
     setDistroId(id);
+    saveDistro(id);
     navigate("/");
+  }
+
+  // on My Setup the page stays the same
+  function handleChangeDistro(id) {
+    setDistroId(id);
+    saveDistro(id);
   }
 
   // derived values, not state
@@ -117,19 +130,34 @@ export default function App() {
           element={
             <PackagesPage
               packages={packages}
+              distros={distros}
               distro={distro}
               loading={loading}
+              onChooseDistro={handleChooseDistro}
               onAdd={handleAdd}
               onToggle={handleToggle}
               onDelete={handleDelete}
             />
           }
         />
-        <Route path="/packages/:id" element={<PackageDetailPage distros={distros} />} />
+        <Route
+          path="/packages/:id"
+          element={<PackageDetailPage distros={distros} packages={packages} />}
+        />
         <Route
           path="/distros"
           element={
             <DistrosPage distros={distros} distroId={distroId} onChoose={handleChooseDistro} />
+          }
+        />
+        <Route
+          path="/distros/:id"
+          element={
+            <DistroDetailPage
+              packages={packages}
+              distroId={distroId}
+              onChoose={handleChooseDistro}
+            />
           }
         />
         <Route
@@ -145,10 +173,17 @@ export default function App() {
               packages={packages}
               distros={distros}
               distro={distro}
-              onChangeDistro={setDistroId}
+              onChangeDistro={handleChangeDistro}
               onToggle={handleToggle}
             />
           }
+        />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/learn" element={<LearnPage packages={packages} />} />
+        <Route path="/learn/:slug" element={<GuidePage />} />
+        <Route
+          path="/quiz"
+          element={<QuizPage distros={distros} onChoose={handleChooseDistro} />}
         />
         <Route path="/about" element={<AboutPage />} />
         <Route path="*" element={<NotFoundPage />} />

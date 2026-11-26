@@ -1,0 +1,82 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.back {
+  font-size: 0.9rem;
+}
+
+.cover {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 28px;
+  border-radius: 16px;
+  color: #fff;
+}
+
+.cover h2 {
+  margin: 0 0 6px;
+  font-size: 2rem;
+}
+
+.cover p {
+  margin: 0 0 10px;
+  max-width: 600px;
+}
+
+.looks h3 {
+  margin-top: 0;
+}
+
+.looks > div {
+  border-radius: 12px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.columns h3 {
+  margin-top: 0;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+  margin: 0 0 16px;
+}
+
+.facts dt {
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.pros {
+  border-top: 4px solid var(--ok);
+}
+
+.cons {
+  border-top: 4px solid #f97316;
+}
+
+@media (max-width: 600px) {
+  .cover {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.highlight {
+  font-size: 1.15rem;
+  font-weight: 800;
+}

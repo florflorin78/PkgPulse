@@ -1,0 +1,142 @@
+.playground {
+  margin: 16px 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #0b0f19;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.dots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f87171;
+}
+
+.dots span:nth-child(2) {
+  background: #fbbf24;
+}
+
+.dots span:nth-child(3) {
+  background: #34d399;
+}
+
+.screen {
+  min-height: 220px;
+  max-height: 340px;
+  padding: 10px 14px;
+  overflow-y: auto;
+  color: #e5e7eb;
+  font-family: monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  cursor: text;
+}
+
+.screen p {
+  margin: 2px 0;
+}
+
+.prompt {
+  color: #34d399;
+}
+
+.out {
+  animation: show 0.2s ease-out both;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+
+.form {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  caret-color: #34d399;
+}
+
+.cava {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 50px;
+}
+
+.cava span {
+  flex: 1;
+  height: 20%;
+  background: linear-gradient(0deg, #7c3aed, #f472b6);
+  animation: jump 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes jump {
+  to {
+    height: 100%;
+  }
+}
+
+.matrix {
+  color: #22c55e;
+  text-shadow: 0 0 6px #22c55e;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  to {
+    opacity: 0.5;
+  }
+}
+
+.bar {
+  height: 8px;
+  margin: 4px 0;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #34d399, #fbbf24, #f87171);
+  animation: load 2s ease-in-out infinite alternate;
+}
+
+@keyframes load {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 90%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .out,
+  .cava span,
+  .matrix,
+  .bar {
+    animation: none;
+  }
+}

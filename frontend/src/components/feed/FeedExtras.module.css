@@ -1,0 +1,93 @@
+.spotlight,
+.tip {
+  animation: rise 0.45s ease-out both;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.head h3,
+.tip h3 {
+  margin: 4px 0 0;
+}
+
+.tag {
+  display: inline-block;
+  padding: 1px 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+}
+
+.foot a {
+  flex-shrink: 0;
+}
+
+.tip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: linear-gradient(120deg, var(--card), var(--accent-soft));
+}
+
+.tip p {
+  margin: 4px 0 0;
+}
+
+.tipEmoji {
+  font-size: 3rem;
+  animation: wiggle 2.5s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  50% {
+    transform: rotate(-8deg) scale(1.08);
+  }
+}
+
+@media (max-width: 600px) {
+  .foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tipEmoji {
+    animation: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+  }
+}

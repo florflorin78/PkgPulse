@@ -1,0 +1,33 @@
+.box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 6px 6px 6px 10px;
+  border-radius: 8px;
+  background: #111827;
+}
+
+.code {
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  color: #a7f3d0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.copy {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-size: 0.75rem;
+}
+
+.copy:hover {
+  border-color: #a7f3d0;
+  color: #a7f3d0;
+}

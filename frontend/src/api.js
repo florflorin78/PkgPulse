@@ -1,4 +1,4 @@
-export const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
+const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3001";
 
 async function request(path, options = {}) {
   const res = await fetch(`${API_URL}${path}`, {
@@ -37,4 +37,8 @@ export function deletePackage(id) {
 
 export function fetchPackage(id) {
   return request(`/packages/${id}`);
+}
+
+export function fetchDistro(id) {
+  return request(`/distros/${id}`);
 }

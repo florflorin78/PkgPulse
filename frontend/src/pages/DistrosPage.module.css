@@ -1,0 +1,13 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.filters select {
+  padding: 8px;
+  border-radius: 8px;
+  font: inherit;
+}

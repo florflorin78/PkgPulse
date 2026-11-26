@@ -1,0 +1,51 @@
+.quiz {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 16px 0;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  color: #fff;
+  text-decoration: none;
+}
+
+.quizEmoji {
+  font-size: 2.5rem;
+}
+
+.go {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.guides {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.guide {
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.guide:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.guide h3 {
+  margin: 8px 0;
+}
+
+.emoji {
+  font-size: 2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide {
+    transition: none;
+  }
+}

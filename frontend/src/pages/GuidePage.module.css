@@ -1,0 +1,56 @@
+.page {
+  max-width: 760px;
+}
+
+.back {
+  font-size: 0.9rem;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  transition: width 0.3s;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.steps p {
+  margin: 6px 0;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.done {
+  border-color: var(--ok);
+  opacity: 0.75;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fill {
+    transition: none;
+  }
+}

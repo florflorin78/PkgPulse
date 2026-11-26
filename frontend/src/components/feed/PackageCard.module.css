@@ -1,0 +1,198 @@
+.card {
+  animation: rise 0.45s ease-out both;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.selected {
+  box-shadow: 0 0 0 2px var(--ok);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.badges {
+  margin-left: auto;
+  text-align: right;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.title a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.title a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.body {
+  padding: 4px 16px 0;
+}
+
+.why {
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  border-top: 1px solid var(--border);
+}
+
+.action {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.action input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: var(--danger);
+}
+
+.watch {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+/* confetti that flies out of the checkbox */
+.burst {
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  pointer-events: none;
+}
+
+.burst span {
+  position: absolute;
+  font-size: 1.1rem;
+  animation: fly 0.9s ease-out forwards;
+}
+
+@keyframes fly {
+  from {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateY(0) rotate(calc(var(--angle) * -1));
+  }
+  to {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateY(-60px) rotate(calc(var(--angle) * -1));
+  }
+}
+
+.action:active {
+  transform: scale(0.96);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .burst span {
+    animation: none;
+  }
+
+  .burst {
+    display: none;
+  }
+}
+
+/* what makes this package different */
+.highlight {
+  margin: 0;
+  padding: 8px 16px;
+  border-left: 5px solid;
+  background: var(--accent-soft);
+  font-weight: 700;
+  animation: slideIn 0.5s ease-out 0.3s both;
+}
+
+.highlight span {
+  color: #f59e0b;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+.managers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.75rem;
+}
+
+.yes,
+.no {
+  padding: 1px 8px;
+  border-radius: 999px;
+}
+
+.yes {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.no {
+  background: var(--accent-soft);
+  color: var(--muted);
+  text-decoration: line-through;
+}

@@ -1,0 +1,748 @@
+/* the mouse goes to the icon, clicks it, and the app opens */
+.scene {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.dockIcon {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 0;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  transform: translateX(-50%);
+  animation: press 0.3s ease-in-out 0.7s both;
+}
+
+@keyframes press {
+  50% {
+    transform: translateX(-50%) scale(0.8);
+  }
+}
+
+.ripple {
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  z-index: 4;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ripple 0.6s ease-out 0.75s both;
+}
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 0;
+    transform: scale(4);
+  }
+}
+
+.pointer {
+  position: absolute;
+  z-index: 5;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.4));
+  animation: point 3.2s ease-in-out both;
+}
+
+@keyframes point {
+  0% {
+    left: 90%;
+    top: 100%;
+  }
+  22% {
+    left: 50%;
+    top: calc(100% - 20px);
+  }
+  28% {
+    transform: scale(0.8);
+  }
+  34% {
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    left: 66%;
+    top: 55%;
+  }
+}
+
+.window {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f8fafc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #1f2937;
+  font-size: 0.75rem;
+  text-align: left;
+  animation: open 0.5s ease-out 0.85s both;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #e2e8f0;
+  font-weight: 600;
+}
+
+.dots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f87171;
+}
+
+.dots span:nth-child(2) {
+  background: #fbbf24;
+}
+
+.dots span:nth-child(3) {
+  background: #34d399;
+}
+
+.body {
+  height: 118px;
+  padding: 8px 10px;
+  overflow: hidden;
+}
+
+.body p {
+  margin: 0;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+.ok {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: type 1.2s steps(12) both;
+}
+
+@keyframes type {
+  from {
+    width: 0;
+  }
+}
+
+.progress {
+  position: relative;
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #cbd5e1;
+  overflow: hidden;
+}
+
+.progress span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 3px;
+  background: #7c3aed;
+  animation: fill 3s ease-in-out infinite;
+}
+
+@keyframes fill {
+  from {
+    width: 5%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* browser */
+.url {
+  margin-bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.block {
+  display: block;
+  border-radius: 6px;
+  background: #cbd5e1;
+  animation: appear 0.4s ease-out both;
+}
+
+.hero {
+  height: 40px;
+  margin-bottom: 6px;
+  background: linear-gradient(90deg, #7c3aed, #db2777);
+  animation-delay: 1.2s;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.cards .block {
+  height: 34px;
+  animation-delay: 1.6s;
+}
+
+.cards .block:nth-child(2) {
+  animation-delay: 1.8s;
+}
+
+.cards .block:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* chat */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bubble {
+  max-width: 75%;
+  padding: 4px 10px;
+  border-radius: 12px;
+  animation: appear 0.3s ease-out both;
+}
+
+.left {
+  align-self: flex-start;
+  background: #e2e8f0;
+}
+
+.right {
+  align-self: flex-end;
+  background: #7c3aed;
+  color: #fff;
+  animation-delay: 0.8s;
+}
+
+.bubble:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.typingDots {
+  display: flex;
+  gap: 3px;
+}
+
+.typingDots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #94a3b8;
+  animation: bounce 1s infinite;
+}
+
+.typingDots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typingDots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* editor */
+.editor {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+  margin: -8px -10px;
+  background: #1e1e2e;
+  color: #cdd6f4;
+  font-family: monospace;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: #181825;
+  font-size: 0.7rem;
+}
+
+.code {
+  padding: 8px 0;
+}
+
+.codeLine {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: type 0.8s steps(30) both;
+}
+
+.codeLine:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.codeLine:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.codeLine:nth-child(4) {
+  animation-delay: 2.4s;
+}
+
+.kw {
+  color: #cba6f7;
+}
+
+.str {
+  color: #a6e3a1;
+}
+
+.fn {
+  color: #89b4fa;
+}
+
+/* video */
+.video {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: -8px -10px;
+  background: #000;
+  color: #fff;
+}
+
+.scene {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f97316, #7c3aed);
+}
+
+.sun {
+  position: absolute;
+  left: 40%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fde047;
+  animation: sunset 4s ease-in-out infinite alternate;
+}
+
+@keyframes sunset {
+  from {
+    top: 10%;
+  }
+  to {
+    top: 60%;
+  }
+}
+
+.hill {
+  position: absolute;
+  bottom: -30px;
+  left: -10%;
+  width: 120%;
+  height: 60px;
+  border-radius: 50%;
+  background: #1e1b4b;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+}
+
+/* music */
+.music {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+}
+
+.vinyl {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f472b6 0 16%, #111 17% 30%, #333 31% 33%, #111 34% 100%);
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.eq {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 30px;
+  margin-top: 6px;
+}
+
+.eq span {
+  width: 6px;
+  height: 20%;
+  border-radius: 2px;
+  background: #7c3aed;
+  animation: jump 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes jump {
+  to {
+    height: 100%;
+  }
+}
+
+/* paint */
+.paint {
+  display: flex;
+  gap: 8px;
+  height: 100%;
+}
+
+.tools {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.canvas {
+  flex: 1;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #e2e8f0;
+}
+
+.draw {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw 2.5s ease-out forwards;
+}
+
+.draw:nth-child(2) {
+  animation-delay: 0.8s;
+}
+
+.draw:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* office */
+.toolbar {
+  margin-bottom: 6px;
+  color: #475569;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.heading {
+  font-weight: 700;
+}
+
+.text {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: #cbd5e1;
+  animation: grow 0.6s ease-out both;
+}
+
+.half {
+  width: 55%;
+}
+
+@keyframes grow {
+  from {
+    width: 0;
+  }
+}
+
+/* games */
+.game {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  margin: -8px -10px;
+  padding: 8px 10px;
+  background: #171a21;
+}
+
+.covers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.covers span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  border-radius: 6px;
+  font-size: 1.8rem;
+  animation: appear 0.4s ease-out both;
+}
+
+.covers span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.covers span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.play {
+  align-self: flex-start;
+  padding: 4px 14px;
+  border: none;
+  border-radius: 4px;
+  background: #22c55e;
+  color: #fff;
+  font-weight: 800;
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* downloads and sliders */
+.download,
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dl,
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dl > span:first-child,
+.slider > span:first-child {
+  width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* password manager and vpn */
+.secure {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.lock {
+  font-size: 2.6rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.entry {
+  margin-bottom: 4px !important;
+  animation: appear 0.3s ease-out both;
+}
+
+/* network */
+.network {
+  margin: -8px -10px;
+  height: calc(100% + 16px);
+  padding: 6px 10px;
+  background: #0f172a;
+  color: #93c5fd;
+  font-family: monospace;
+}
+
+.packet {
+  padding: 2px 0;
+  border-bottom: 1px solid #1e293b;
+  animation: appear 0.3s ease-out both;
+}
+
+/* calculator */
+.calc {
+  display: flex;
+  gap: 10px;
+}
+
+.display {
+  flex: 1;
+  padding: 6px;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+}
+
+.keys span {
+  padding: 3px 7px;
+  border-radius: 4px;
+  background: #e2e8f0;
+  text-align: center;
+}
+
+/* screenshot */
+.shot {
+  position: relative;
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #bae6fd, #c4b5fd);
+}
+
+.select {
+  position: absolute;
+  border: 2px dashed #7c3aed;
+  background: rgba(124, 58, 237, 0.15);
+  animation: select 3s ease-in-out infinite;
+}
+
+@keyframes select {
+  0% {
+    left: 20%;
+    top: 30%;
+    width: 0;
+    height: 0;
+  }
+  60%,
+  100% {
+    left: 20%;
+    top: 30%;
+    width: 55%;
+    height: 50%;
+  }
+}
+
+.flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  animation: flash 3s infinite;
+}
+
+@keyframes flash {
+  62% {
+    opacity: 0;
+  }
+  66% {
+    opacity: 0.9;
+  }
+  75% {
+    opacity: 0;
+  }
+}
+
+.arrow {
+  position: absolute;
+  right: 12%;
+  bottom: 12%;
+  color: #dc2626;
+  font-weight: 800;
+}
+
+/* files */
+.files {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.file {
+  padding: 6px;
+  border-radius: 6px;
+  background: #e2e8f0;
+  animation: appear 0.3s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .window,
+  .window * {
+    animation: none !important;
+  }
+
+  .draw {
+    stroke-dashoffset: 0;
+  }
+}

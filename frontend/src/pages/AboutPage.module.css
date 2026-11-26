@@ -20,3 +20,11 @@
   flex-wrap: wrap;
   gap: 12px;
 }
+
+.credits {
+  padding-left: 18px;
+}
+
+.credits li {
+  margin-bottom: 6px;
+}

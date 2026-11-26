@@ -1,19 +1,49 @@
 import { useState } from "react";
-import { installCommand, isAvailable, updateCommand } from "../helpers.js";
+import {
+  FLATHUB_COMMAND,
+  canUseFlatpak,
+  flatpakCommand,
+  installCommand,
+  isAvailable,
+  updateCommand,
+} from "../helpers.js";
+import usePageTitle from "../usePageTitle.js";
 import styles from "./SetupPage.module.css";
 
 export default function SetupPage({ packages, distros, distro, onChangeDistro, onToggle }) {
+  usePageTitle("My Setup");
   const [copied, setCopied] = useState(false);
 
   const selected = packages.filter((p) => p.selected);
 
   let script = "";
   let missing = [];
+  let flatpakApps = [];
   if (distro) {
     const available = selected.filter((p) => isAvailable(p, distro));
-    missing = selected.filter((p) => !isAvailable(p, distro));
-    const names = available.map((p) => p.install);
+    flatpakApps = selected.filter((p) => canUseFlatpak(p, distro));
+    missing = selected.filter((p) => !isAvailable(p, distro) && !canUseFlatpak(p, distro));
+    let names = available.map((p) => p.install);
+    // the apps from Flathub need flatpak itself
+    if (flatpakApps.length > 0 && !names.includes("flatpak")) {
+      names = [...names, "flatpak"];
+    }
     script = updateCommand(distro.manager) + "\n" + installCommand(names, distro.manager);
+    if (flatpakApps.length > 0) {
+      const ids = flatpakApps.map((p) => p.flatpak);
+      script = script + "\n" + FLATHUB_COMMAND + "\n" + flatpakCommand(ids);
+    }
+  }
+
+  // saves the commands as a file that can be run with bash
+  function handleDownload() {
+    const file = new Blob(["#!/bin/bash\nset -e\n\n" + script + "\n"], { type: "text/x-sh" });
+    const url = URL.createObjectURL(file);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "pkgpulse-setup.sh";
+    link.click();
+    URL.revokeObjectURL(url);
   }
 
   function handleCopy() {
@@ -70,11 +100,21 @@ export default function SetupPage({ packages, distros, distro, onChangeDistro, o
               <pre className={styles.script}>{script}</pre>
               <button className="btn-primary" onClick={handleCopy}>
                 {copied ? "✓ Copied!" : "Copy"}
+              </button>{" "}
+              <button className="btn-secondary" onClick={handleDownload}>
+                Download .sh
               </button>
+              <p className="muted">Run the file with: bash pkgpulse-setup.sh</p>
+              {flatpakApps.length > 0 && (
+                <p className="tip">
+                  Not in the {distro.name} repos, so they are installed with Flatpak:{" "}
+                  {flatpakApps.map((p) => p.name).join(", ")}.
+                </p>
+              )}
               {missing.length > 0 && (
                 <p className="warning">
                   Not in the {distro.name} repos: {missing.map((p) => p.name).join(", ")}.
-                  Try Flatpak or skip them.
+                  Skip them or install them by hand.
                 </p>
               )}
             </>

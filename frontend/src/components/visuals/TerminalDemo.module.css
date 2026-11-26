@@ -1,0 +1,213 @@
+.terminal {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: 100%;
+  padding: 10px 14px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(10, 10, 20, 0.88);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #e5e7eb;
+  font-family: monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  text-align: left;
+  white-space: pre;
+}
+
+.terminal p {
+  margin: 2px 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #f87171;
+}
+
+.dots span:nth-child(2) {
+  background: #fbbf24;
+}
+
+.dots span:nth-child(3) {
+  background: #34d399;
+}
+
+.prompt {
+  color: #34d399;
+}
+
+/* the command is typed letter by letter */
+.typed {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  vertical-align: bottom;
+  animation: type steps(var(--chars)) forwards;
+}
+
+@keyframes type {
+  to {
+    width: calc(var(--chars) * 1ch);
+  }
+}
+
+.line {
+  opacity: 0;
+  animation: show 0.2s forwards;
+}
+
+@keyframes show {
+  to {
+    opacity: 1;
+  }
+}
+
+.cursor {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* htop style bars */
+.bars {
+  display: grid;
+  gap: 3px;
+  margin: 4px 0;
+  opacity: 0;
+  animation: show 0.2s forwards;
+}
+
+.bar {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #34d399, #fbbf24, #f87171);
+  animation: load 2s ease-in-out infinite alternate;
+}
+
+@keyframes load {
+  from {
+    width: 20%;
+  }
+  to {
+    width: 90%;
+  }
+}
+
+/* falling letters */
+.matrix {
+  position: relative;
+  height: 110px;
+  overflow: hidden;
+}
+
+.matrix span {
+  position: absolute;
+  top: -100%;
+  color: #22c55e;
+  writing-mode: vertical-rl;
+  text-shadow: 0 0 6px #22c55e;
+  animation: fall 2s linear infinite;
+}
+
+@keyframes fall {
+  to {
+    top: 100%;
+  }
+}
+
+/* music bars */
+.cava {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 70px;
+  margin: 6px 0;
+}
+
+.cava span {
+  flex: 1;
+  height: 20%;
+  border-radius: 2px 2px 0 0;
+  background: linear-gradient(0deg, #7c3aed, #f472b6);
+  animation: jump 0.9s ease-in-out infinite alternate;
+}
+
+@keyframes jump {
+  to {
+    height: 100%;
+  }
+}
+
+/* the Enter key appears when the command is typed */
+.enter {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  padding: 1px 8px;
+  border: 1px solid #cbd5e1;
+  border-bottom-width: 3px;
+  border-radius: 5px;
+  background: #f8fafc;
+  color: #111827;
+  font-family: inherit;
+  font-size: 0.7rem;
+  opacity: 0;
+  animation: enter 1.4s ease-in-out both;
+}
+
+@keyframes enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  30% {
+    transform: translateY(2px);
+    border-bottom-width: 1px;
+  }
+  45% {
+    transform: translateY(0);
+    border-bottom-width: 3px;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typed {
+    width: auto;
+    animation: none;
+  }
+
+  .line,
+  .bars {
+    opacity: 1;
+    animation: none;
+  }
+
+  .bar,
+  .matrix span,
+  .cava span,
+  .cursor {
+    animation: none;
+  }
+}

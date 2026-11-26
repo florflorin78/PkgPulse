@@ -3,9 +3,11 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import styles from "./Layout.module.css";
 
 const LINKS = [
-  { to: "/", label: "Packages" },
+  { to: "/", label: "Feed" },
   { to: "/distros", label: "Distros" },
   { to: "/customize", label: "Customize" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/learn", label: "Learn" },
   { to: "/setup", label: "My Setup" },
   { to: "/about", label: "About" },
 ];

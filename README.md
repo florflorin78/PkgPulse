@@ -10,12 +10,50 @@ everything after you install Linux.
 | name | text | required, max 100 chars |
 | selected | boolean | toggled from the list, default false |
 | type | fixed values | package, configuration, script |
-| category | relation | Interface & Tiling, Terminal & Shell, Apps, System packages |
+| category | relation | 11 categories, listed in `frontend/src/data/constants.js` |
 | user | relation | the owner of the item (from week 11) |
 
 Extra fields used by the site: `install` (the name used in the install
 command), `recommended`, `managers` (package managers that have it),
-`description`, `why`.
+`description`, `why`, and `flatpak` (the Flathub id, only for apps that are not in
+the official repos, like Spotify or Steam).
+
+Optional fields: `video` (a YouTube id), `image` (a file in `frontend/public/img`),
+`flatpak` (the Flathub id, for apps that are not in the repos) and `highlight` (one line
+that says what makes the package different). A package that is not in the repos of the
+chosen distro but has a `flatpak` id is installed with Flatpak in My Setup.
+
+The data has 204 packages and 22 distros. Distros also have `website`, `basedOn`,
+`desktop`, `release`, `pros`, `cons`, `highlight`, `features`, `trending` and an
+optional `video`.
+
+## Project structure
+
+    frontend/
+      db.json              data for json-server
+      public/img/rices/    screenshots of the Customize editor (Gallery)
+      src/
+        main.jsx, App.jsx  start of the app, routes and shared state
+        api.js             every request to the server
+        helpers.js         small functions (commands, sorting, saved distro)
+        usePageTitle.js    the title of the browser tab
+        index.css          colors, themes and shared classes
+        data/              fixed data: categories, Customize pieces, demos, guides, jokes, mascots
+        components/        Layout, DistroCard, CommandBox, DesktopPreview
+          feed/            the posts of the feed and the add form
+          visuals/         mascots, animated desktops, demos, video player, practice terminal
+        pages/             one file for every route
+
+## Pictures and animations
+
+Every picture is made by the site, nothing is copied from other sites:
+- every distro has its own mascot and a drawing of its default desktop, with bubbles
+  for the three things that make it different (`features`);
+- every package shows what it does: a terminal that types the command and prints the
+  result, an app window that opens after a click, or a desktop tool at work;
+- the Gallery images are screenshots of the Customize editor.
+
+All animations stop when the system asks for reduced motion.
 
 Sample data used across all stages:
 1. Hyprland, selected, configuration
@@ -63,9 +101,9 @@ through props: `DistroCard` shows one distro, `PackageCard` shows one package.
 | S4-R1 | 2+ components in src/components/ | [components/](https://github.com/florflorin78/PkgPulse/tree/823a4b2/frontend/src/components) | open folder |
 | S4-R2 | card receives data through props | [PackageCard.jsx](https://github.com/florflorin78/PkgPulse/blob/823a4b2/frontend/src/components/PackageCard.jsx) | read |
 | S4-R3 | map + key={id}, no console warnings | [App.jsx](https://github.com/florflorin78/PkgPulse/blob/823a4b2/frontend/src/App.jsx) | F12, Console |
-| S4-R4 | message for empty list | frontend/src/components/PackageList.jsx#L4-L6 | search for "xyz" |
-| S4-R5 | state changes the card look | frontend/src/components/PackageCard.jsx#L12 | check a package |
-| S4-R6 | README Stage 4 section + AI log | README.md, ai-log/etapa-04.md | read |
+| S4-R4 | message for empty list | [PackageList.jsx L4-L6](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/components/PackageList.jsx#L4-L6) | search for "xyz" |
+| S4-R5 | state changes the card look | [PackageCard.jsx L12](https://github.com/florflorin78/PkgPulse/blob/823a4b2/frontend/src/components/PackageCard.jsx#L12) | check a package |
+| S4-R6 | README Stage 4 section + AI log | [README.md](https://github.com/florflorin78/PkgPulse/blob/823a4b2/README.md), [etapa-04.md](https://github.com/florflorin78/PkgPulse/blob/823a4b2/ai-log/etapa-04.md) | read |
 | S4-R7 | commit "Stage 4" pushed | [823a4b2](https://github.com/florflorin78/PkgPulse/commit/823a4b2) | commit history |
 
 ## Stage 5: local state and events
@@ -81,14 +119,14 @@ My Setup (the final install command).
 ### Stage 5 checklist
 | ID | Requirement | Where (permalink) | How to check |
 | ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
-| S5-R1 | list kept in useState, in App | frontend/src/App.jsx#L23 | read |
-| S5-R2 | toggling changes state and card look | frontend/src/App.jsx#L56-L60, frontend/src/components/PackageCard.jsx#L12-L18 | click a checkbox |
-| S5-R3 | delete removes the item | frontend/src/App.jsx#L62-L64, frontend/src/components/PackageCard.jsx#L32-L38 | click Delete |
-| S5-R4 | header counter derived, not in state | frontend/src/App.jsx#L86 | toggle, watch header |
-| S5-R5 | immutable updates (no push, splice, assignment) | frontend/src/App.jsx#L56-L72, frontend/src/components/CustomizePage.jsx#L81-L96 | read, search for push |
-| S5-R6 | light / dark toggle: state + data-theme on html | frontend/src/App.jsx#L79-L83, frontend/src/App.css#L17-L43 | click the button, both system themes |
-| S5-R7 | no console warnings; README + AI log | README.md, ai-log/etapa-05.md | F12, Console |
-| S5-R8 | commit "Stage 5" pushed | link to the commit | commit history |
+| S5-R1 | list kept in useState, in App | [App.jsx L23](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.jsx#L23) | read |
+| S5-R2 | toggling changes state and card look | [App.jsx L56-L60](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.jsx#L56-L60), [PackageCard.jsx L12-L18](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/components/PackageCard.jsx#L12-L18) | click a checkbox |
+| S5-R3 | delete removes the item | [App.jsx L62-L64](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.jsx#L62-L64), [PackageCard.jsx L32-L38](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/components/PackageCard.jsx#L32-L38) | click Delete |
+| S5-R4 | header counter derived, not in state | [App.jsx L86](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.jsx#L86) | toggle, watch header |
+| S5-R5 | immutable updates (no push, splice, assignment) | [App.jsx L72-L102](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/App.jsx#L72-L102), [CustomizePage.jsx L81-L96](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/CustomizePage.jsx#L81-L96) (fixed in Stage 7: no more push) | read, search for push |
+| S5-R6 | light / dark toggle: state + data-theme on html | [App.jsx L79-L83](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.jsx#L79-L83), [App.css L17-L43](https://github.com/florflorin78/PkgPulse/blob/e214ffa/frontend/src/App.css#L17-L43) | click the button, both system themes |
+| S5-R7 | no console warnings; README + AI log | [README.md](https://github.com/florflorin78/PkgPulse/blob/e214ffa/README.md), [etapa-05.md](https://github.com/florflorin78/PkgPulse/blob/e214ffa/ai-log/etapa-05.md) | F12, Console |
+| S5-R8 | commit "Stage 5" pushed | [Stage 5: local state and events](https://github.com/florflorin78/PkgPulse/commit/e214ffabd8487cb04d7bc4afccc83f73826a8cb5) | commit history |
 
 ## Stage 6: data from a mock API
 The packages and the distros are served by json-server from `db.json`.
@@ -100,13 +138,13 @@ The app fetches them on load and shows a loading state and an error state.
 ### Stage 6 checklist
 | ID | Requirement | Where (permalink) | How to check |
 | ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
-| S6-R1 | npm run api starts, route shows JSON | frontend/package.json#L11, frontend/db.json | open localhost:3001/packages |
-| S6-R2 | data no longer in React code | frontend/src/App.jsx#L23-L24 (useState([])) | read |
-| S6-R3 | loading message while waiting | frontend/src/App.jsx#L122 | --delay 4000 |
-| S6-R4 | error message when API is down | frontend/src/App.jsx#L123-L127 | stop npm run api, refresh |
-| S6-R5 | fetch only in api.js, URL from env | frontend/src/api.js#L1-L19, frontend/.env.example | search for fetch |
-| S6-R6 | README Stage 6 section + AI log | README.md, ai-log/etapa-06.md | read |
-| S6-R7 | commit "Stage 6" pushed | link to the commit | commit history |
+| S6-R1 | npm run api starts, route shows JSON | [package.json L11](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/package.json#L11), [db.json](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/db.json) | open localhost:3001/packages |
+| S6-R2 | data no longer in React code | [App.jsx L23-L24](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/src/App.jsx#L23-L24) (useState([])) | read |
+| S6-R3 | loading message while waiting | [App.jsx L122](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/src/App.jsx#L122) | --delay 4000 |
+| S6-R4 | error message when API is down | [App.jsx L123-L127](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/src/App.jsx#L123-L127) | stop npm run api, refresh |
+| S6-R5 | fetch only in api.js, URL from env | [api.js L1-L19](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/src/api.js#L1-L19), [.env.example](https://github.com/florflorin78/PkgPulse/blob/3c28121/frontend/.env.example) | search for fetch |
+| S6-R6 | README Stage 6 section + AI log | [README.md](https://github.com/florflorin78/PkgPulse/blob/3c28121/README.md), [etapa-06.md](https://github.com/florflorin78/PkgPulse/blob/3c28121/ai-log/etapa-06.md) | read |
+| S6-R7 | commit "Stage 6" pushed | [Stage 6: data from a mock API](https://github.com/florflorin78/PkgPulse/commit/3c281217030252fe16e232c61397180ddd8964ef) | commit history |
 
 ## Stage 7: form and validation
 Packages can be added from the page. The form is controlled and validated,
@@ -117,14 +155,14 @@ in the list, so it is still there after a refresh. `tw.json` and the
 ### Stage 7 checklist
 | ID | Requirement | Where (permalink) | How to check |
 | ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
-| S7-R1 | controlled form: value + onChange on every field | frontend/src/components/PackageForm.jsx#L56-L112 | read |
-| S7-R2 | empty name shows an error, nothing is sent | frontend/src/components/PackageForm.jsx#L15-L31 | submit empty, watch Network |
-| S7-R3 | added item shows in the list and survives refresh | frontend/src/App.jsx#L62-L73, frontend/src/api.js#L3-L25 | add, refresh |
-| S7-R4 | toggle and delete survive refresh | frontend/src/App.jsx#L75-L94 | toggle/delete, refresh |
-| S7-R5 | button disabled while sending, form cleared only on success | frontend/src/components/PackageForm.jsx#L33-L53, frontend/src/components/PackageForm.jsx#L112 | --delay 3000, stop the API and submit |
-| S7-R6 | tw.json and the data-testid attributes from table 7.3 | tw.json, frontend/src/components/PackageCard.jsx#L14-L41 | querySelectorAll in the console |
-| S7-R7 | README Stage 7 section + AI log | README.md, ai-log/etapa-07.md | read |
-| S7-R8 | commit "Stage 7" pushed | link to the commit | commit history |
+| S7-R1 | controlled form: value + onChange on every field | [PackageForm.jsx L56-L112](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/PackageForm.jsx#L56-L112) | read |
+| S7-R2 | empty name shows an error, nothing is sent | [PackageForm.jsx L15-L31](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/PackageForm.jsx#L15-L31) | submit empty, watch Network |
+| S7-R3 | added item shows in the list and survives refresh | [App.jsx L62-L73](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/App.jsx#L62-L73), [api.js L3-L25](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/api.js#L3-L25) | add, refresh |
+| S7-R4 | toggle and delete survive refresh | [App.jsx L75-L94](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/App.jsx#L75-L94) | toggle/delete, refresh |
+| S7-R5 | button disabled while sending, form cleared only on success | [PackageForm.jsx L33-L53](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/PackageForm.jsx#L33-L53), [PackageForm.jsx L112](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/PackageForm.jsx#L112) | --delay 3000, stop the API and submit |
+| S7-R6 | tw.json and the data-testid attributes from table 7.3 | [tw.json](https://github.com/florflorin78/PkgPulse/blob/f240c88/tw.json), [PackageCard.jsx L14-L41](https://github.com/florflorin78/PkgPulse/blob/f240c88/frontend/src/components/PackageCard.jsx#L14-L41) | querySelectorAll in the console |
+| S7-R7 | README Stage 7 section + AI log | [README.md](https://github.com/florflorin78/PkgPulse/blob/f240c88/README.md), [etapa-07.md](https://github.com/florflorin78/PkgPulse/blob/f240c88/ai-log/etapa-07.md) | read |
+| S7-R8 | commit "Stage 7" pushed | [Stage 7: form and validation](https://github.com/florflorin78/PkgPulse/commit/f240c8879e1ba182396a04484c82302b0c696cef) | commit history |
 
 ## Stage 8: routing and detail page
 Three pages behind React Router: the package list, a detail page at
@@ -135,25 +173,30 @@ from one big `App.css` to CSS Modules, one file next to each component;
 
 | Address | Page |
 | ------------- | ------------------------------------------- |
-| / | package list, search, filters and the add form |
+| / | the feed: package posts, search, filters, the add form and memes |
 | /packages/:id | detail of one package, with the command for every package manager |
 | /distros | choose a distro |
 | /customize | drag and drop desktop |
 | /setup | selected packages and the install command |
+| /distros/:id | detail of one distro: facts, pros and cons, install video |
+| /gallery | ready desktops, each opens in Customize |
+| /learn | beginner guides |
+| /learn/:slug | one guide, with steps you can tick |
+| /quiz | 5 questions that recommend a distro |
 | /about | why Linux and how the site works |
 | * | page not found |
 
 ### Stage 8 checklist
 | ID | Requirement | Where (permalink) | How to check |
 | ----- | ---------------------------------- | ------------------------------------------- | ---------------------- |
-| S8-R1 | header navigation changes the page without reload | frontend/src/App.jsx#L111-L155, frontend/src/components/Layout.jsx#L38-L46 | click the links, watch Network |
-| S8-R2 | click on an item opens its detail page | frontend/src/components/PackageCard.jsx#L29-L31, frontend/src/pages/PackageDetailPage.jsx | click a title |
-| S8-R3 | refresh on the detail address works; a missing id shows an error | frontend/src/pages/PackageDetailPage.jsx#L8-L35, frontend/src/pages/PackageDetailPage.jsx#L45-L54 | refresh /packages/1, open /packages/999 |
-| S8-R4 | unknown address shows the 404 page of the app | frontend/src/App.jsx#L154, frontend/src/pages/NotFoundPage.jsx | open /ceva |
-| S8-R5 | each component has its .module.css; index.css only shared styles | frontend/src/components, frontend/src/pages, frontend/src/index.css | read |
-| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /packages/:id | frontend/src/components/Layout.jsx#L38, frontend/src/components/PackageCard.jsx#L16-L48, frontend/src/pages/PackageDetailPage.jsx#L59-L63 | querySelector in the console |
-| S8-R7 | README Stage 8 section + AI log | README.md, ai-log/etapa-08.md | read |
-| S8-R8 | commit "Stage 8" pushed | link to the commit | commit history |
+| S8-R1 | header navigation changes the page without reload | [App.jsx L111-L155](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/App.jsx#L111-L155), [Layout.jsx L38-L46](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/components/Layout.jsx#L38-L46) | click the links, watch Network |
+| S8-R2 | click on an item opens its detail page | [PackageCard.jsx L29-L31](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/components/PackageCard.jsx#L29-L31), [PackageDetailPage.jsx](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/pages/PackageDetailPage.jsx) | click a title |
+| S8-R3 | refresh on the detail address works; a missing id shows an error | [PackageDetailPage.jsx L8-L35](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/pages/PackageDetailPage.jsx#L8-L35), [PackageDetailPage.jsx L45-L54](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/pages/PackageDetailPage.jsx#L45-L54) | refresh /packages/1, open /packages/999 |
+| S8-R4 | unknown address shows the 404 page of the app | [App.jsx L154](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/App.jsx#L154), [NotFoundPage.jsx](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/pages/NotFoundPage.jsx) | open /ceva |
+| S8-R5 | each component has its .module.css; index.css only shared styles | [components](https://github.com/florflorin78/PkgPulse/tree/f53113a/frontend/src/components), [pages](https://github.com/florflorin78/PkgPulse/tree/f53113a/frontend/src/pages), [index.css](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/index.css) | read |
+| S8-R6 | data-testid attributes from tables 7.3 and 8.2; detail route /packages/:id | [Layout.jsx L38](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/components/Layout.jsx#L38), [PackageCard.jsx L16-L48](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/components/PackageCard.jsx#L16-L48), [PackageDetailPage.jsx L59-L63](https://github.com/florflorin78/PkgPulse/blob/f53113a/frontend/src/pages/PackageDetailPage.jsx#L59-L63) | querySelector in the console |
+| S8-R7 | README Stage 8 section + AI log | [README.md](https://github.com/florflorin78/PkgPulse/blob/f53113a/README.md), [etapa-08.md](https://github.com/florflorin78/PkgPulse/blob/f53113a/ai-log/etapa-08.md) | read |
+| S8-R8 | commit "Stage 8" pushed | [Stage 8: routing and detail page](https://github.com/florflorin78/PkgPulse/commit/f53113a7e9f0ca1a92a520b88f75fe52523b69e6) | commit history |
 
 ## Status
 - [x] Stage 1: static mockup

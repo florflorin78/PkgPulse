@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CATEGORIES, NAME_MAX, TYPES } from "../constants.js";
+import { CATEGORIES, NAME_MAX, TYPES } from "../../data/constants.js";
 import styles from "./PackageForm.module.css";
 
 export default function PackageForm({ onAdd }) {

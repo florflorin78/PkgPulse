@@ -4,91 +4,652 @@
       "id": "mint",
       "name": "Linux Mint",
       "manager": "apt",
-      "icon": "🍃",
       "color": "#5fa832",
       "level": "Beginner",
       "forWho": "Coming from Windows",
-      "description": "Looks and feels like Windows. Everything works right after install."
+      "description": "Looks and feels like Windows. Everything works right after install.",
+      "website": "https://linuxmint.com",
+      "basedOn": "Ubuntu LTS",
+      "desktop": "Cinnamon",
+      "release": "Fixed, a new version every 2 years",
+      "pros": [
+        "Familiar layout if you come from Windows",
+        "Very stable and calm",
+        "Huge and friendly community"
+      ],
+      "cons": [
+        "Software is a bit older than on rolling distros",
+        "Wayland support is still experimental"
+      ],
+      "video": "KYtFVepmImI",
+      "trending": true,
+      "highlight": "Feels like Windows from the first minute",
+      "features": [
+        "Start menu like Windows",
+        "Driver Manager",
+        "Update Manager"
+      ]
     },
     {
       "id": "ubuntu",
       "name": "Ubuntu",
       "manager": "apt",
-      "icon": "🟠",
       "color": "#e95420",
       "level": "Beginner",
       "forWho": "Your first Linux",
-      "description": "The most popular Linux. You can find help for any problem."
+      "description": "The most popular Linux. You can find help for any problem.",
+      "website": "https://ubuntu.com",
+      "basedOn": "Debian",
+      "desktop": "GNOME",
+      "release": "Every 6 months, LTS every 2 years",
+      "pros": [
+        "Most Linux guides are written for it",
+        "Good hardware support",
+        "Long support for LTS versions"
+      ],
+      "cons": [
+        "Uses Snap packages by default",
+        "GNOME needs extensions to look like Windows"
+      ],
+      "video": "41GEw96XKbM",
+      "trending": false,
+      "highlight": "The distro most guides are written for",
+      "features": [
+        "Dock on the left",
+        "5 years of updates",
+        "Snap Store"
+      ]
     },
     {
       "id": "pop",
       "name": "Pop!_OS",
       "manager": "apt",
-      "icon": "🚀",
       "color": "#48b9c7",
       "level": "Beginner",
       "forWho": "Gamers and programmers",
-      "description": "Based on Ubuntu, with NVIDIA drivers ready and built-in tiling."
+      "description": "Based on Ubuntu, with NVIDIA drivers ready and built-in tiling.",
+      "website": "https://system76.com/pop",
+      "basedOn": "Ubuntu LTS",
+      "desktop": "COSMIC",
+      "release": "Follows Ubuntu LTS",
+      "pros": [
+        "NVIDIA version with drivers ready",
+        "Tiling built into the desktop",
+        "Great for gaming and coding"
+      ],
+      "cons": [
+        "The COSMIC desktop is still young",
+        "Fewer ready themes than GNOME or KDE"
+      ],
+      "video": "nc79w1Tvm2M",
+      "trending": true,
+      "highlight": "Tiling built into a normal desktop",
+      "features": [
+        "Auto tiling",
+        "NVIDIA ready",
+        "COSMIC desktop"
+      ]
     },
     {
       "id": "debian",
       "name": "Debian",
       "manager": "apt",
-      "icon": "🌀",
       "color": "#a81d33",
       "level": "Intermediate",
       "forWho": "People who want stability",
-      "description": "Very stable. The software is older, but it almost never breaks."
+      "description": "Very stable. The software is older, but it almost never breaks.",
+      "website": "https://www.debian.org",
+      "basedOn": "Independent",
+      "desktop": "GNOME (others at install)",
+      "release": "Stable, about every 2 years",
+      "pros": [
+        "Rock solid",
+        "One of the biggest package archives",
+        "Run by the community, not a company"
+      ],
+      "cons": [
+        "Older software in the stable version",
+        "The installer asks more questions"
+      ],
+      "video": "u6dQtsAjwoM",
+      "trending": false,
+      "highlight": "The rock that many distros are built on",
+      "features": [
+        "Very stable",
+        "60 000+ packages",
+        "Run by volunteers"
+      ]
     },
     {
       "id": "fedora",
       "name": "Fedora",
       "manager": "dnf",
-      "icon": "🎩",
       "color": "#3c6eb4",
       "level": "Intermediate",
       "forWho": "Students and developers",
-      "description": "New software and a clean desktop. Great for programming."
+      "description": "New software and a clean desktop. Great for programming.",
+      "website": "https://fedoraproject.org",
+      "basedOn": "Independent (sponsored by Red Hat)",
+      "desktop": "GNOME",
+      "release": "Every 6 months",
+      "pros": [
+        "New software that is tested first",
+        "Clean GNOME desktop",
+        "Great for developers"
+      ],
+      "cons": [
+        "Codecs and NVIDIA drivers need RPM Fusion",
+        "You upgrade to a new version every year"
+      ],
+      "video": "kEbnZZW-iG4",
+      "trending": false,
+      "highlight": "New features first, but tested",
+      "features": [
+        "Latest GNOME",
+        "Wayland first",
+        "Great for coding"
+      ]
     },
     {
       "id": "opensuse",
       "name": "openSUSE Tumbleweed",
       "manager": "zypper",
-      "icon": "🦎",
       "color": "#73ba25",
       "level": "Intermediate",
       "forWho": "New software, but safe",
-      "description": "Always up to date, with automatic snapshots if an update fails."
+      "description": "Always up to date, with automatic snapshots if an update fails.",
+      "website": "https://www.opensuse.org",
+      "basedOn": "Independent",
+      "desktop": "KDE Plasma",
+      "release": "Rolling",
+      "pros": [
+        "Rolling, but every update is tested first",
+        "Snapshots let you undo a bad update",
+        "YaST settings tools"
+      ],
+      "cons": [
+        "Smaller community than Ubuntu or Arch",
+        "Codecs need the Packman repo"
+      ],
+      "video": "j836YXS3kA8",
+      "trending": false,
+      "highlight": "Rolling, with a safety net",
+      "features": [
+        "Snapper snapshots",
+        "YaST settings",
+        "Tested updates"
+      ]
     },
     {
       "id": "manjaro",
       "name": "Manjaro",
       "manager": "pacman",
-      "icon": "🌿",
       "color": "#35bf5c",
       "level": "Intermediate",
       "forWho": "Arch, but easier",
-      "description": "Based on Arch, with a graphical installer and ready-made desktops."
+      "description": "Based on Arch, with a graphical installer and ready-made desktops.",
+      "website": "https://manjaro.org",
+      "basedOn": "Arch Linux",
+      "desktop": "KDE Plasma (GNOME and Xfce too)",
+      "release": "Rolling, with delayed updates",
+      "pros": [
+        "Arch with a graphical installer",
+        "Tool for drivers and kernels",
+        "Many editions"
+      ],
+      "cons": [
+        "Packages arrive later than on Arch",
+        "Arch guides do not always match"
+      ],
+      "video": "ZNnEIb6Oybw",
+      "trending": false,
+      "highlight": "Arch, with a pause before updates",
+      "features": [
+        "Graphical installer",
+        "Kernel tool",
+        "Many editions"
+      ]
     },
     {
       "id": "endeavouros",
       "name": "EndeavourOS",
       "manager": "pacman",
-      "icon": "🪐",
       "color": "#7f43de",
       "level": "Intermediate",
       "forWho": "Your first step into Arch",
-      "description": "Almost pure Arch with an easy installer. Great for ricing."
+      "description": "Almost pure Arch with an easy installer. Great for ricing.",
+      "website": "https://endeavouros.com",
+      "basedOn": "Arch Linux",
+      "desktop": "KDE Plasma (you can pick)",
+      "release": "Rolling",
+      "pros": [
+        "Almost pure Arch",
+        "Very friendly forum",
+        "Easy graphical installer"
+      ],
+      "cons": [
+        "You fix problems in the terminal",
+        "Few graphical tools"
+      ],
+      "video": "ZVGuhQZQfNQ",
+      "trending": false,
+      "highlight": "Arch, installed for you",
+      "features": [
+        "Almost pure Arch",
+        "Friendly forum",
+        "Pick any desktop"
+      ]
     },
     {
       "id": "arch",
       "name": "Arch Linux",
       "manager": "pacman",
-      "icon": "🏹",
       "color": "#1793d1",
       "level": "Advanced",
       "forWho": "Ricers and tinkerers",
-      "description": "You build the system piece by piece. The best wiki in the Linux world."
+      "description": "You build the system piece by piece. The best wiki in the Linux world.",
+      "website": "https://archlinux.org",
+      "basedOn": "Independent",
+      "desktop": "None, you choose",
+      "release": "Rolling",
+      "pros": [
+        "The newest software",
+        "The Arch Wiki is the best Linux manual",
+        "The AUR has almost every program"
+      ],
+      "cons": [
+        "You build the system yourself",
+        "It needs regular care"
+      ],
+      "video": "lQANIIY12BE",
+      "trending": false,
+      "highlight": "You build it yourself, piece by piece",
+      "features": [
+        "AUR",
+        "Arch Wiki",
+        "Rolling release"
+      ]
+    },
+    {
+      "id": "kubuntu",
+      "name": "Kubuntu",
+      "manager": "apt",
+      "color": "#1d99f3",
+      "level": "Beginner",
+      "forWho": "People who like KDE Plasma",
+      "description": "Ubuntu with the KDE Plasma desktop, which you can change in many ways.",
+      "website": "https://kubuntu.org",
+      "basedOn": "Ubuntu",
+      "desktop": "KDE Plasma",
+      "release": "Same as Ubuntu",
+      "pros": [
+        "Looks like Windows from the start",
+        "You can change almost everything",
+        "Ubuntu guides work here too"
+      ],
+      "cons": [
+        "Uses Snap like Ubuntu",
+        "So many settings can feel like a lot"
+      ],
+      "trending": false,
+      "highlight": "Ubuntu with the KDE desktop",
+      "features": [
+        "KDE Plasma",
+        "Windows like taskbar",
+        "Ubuntu base"
+      ]
+    },
+    {
+      "id": "zorin",
+      "name": "Zorin OS",
+      "manager": "apt",
+      "color": "#15a6f0",
+      "level": "Beginner",
+      "forWho": "Switching from Windows or macOS",
+      "description": "Based on Ubuntu, with a layout that looks like Windows or macOS.",
+      "website": "https://zorin.com/os",
+      "basedOn": "Ubuntu LTS",
+      "desktop": "Zorin Desktop (based on GNOME)",
+      "release": "Follows Ubuntu LTS",
+      "pros": [
+        "Layouts that look like Windows or macOS",
+        "Polished for beginners",
+        "Helps you run some Windows apps"
+      ],
+      "cons": [
+        "Some layouts need the paid Pro edition",
+        "New versions come later than Ubuntu"
+      ],
+      "video": "9ekeLpKeDe8",
+      "trending": false,
+      "highlight": "Switch layouts: Windows or macOS",
+      "features": [
+        "Layout changer",
+        "Windows app help",
+        "Polished look"
+      ]
+    },
+    {
+      "id": "elementary",
+      "name": "elementary OS",
+      "manager": "apt",
+      "color": "#64baff",
+      "level": "Beginner",
+      "forWho": "People who like a clean macOS look",
+      "description": "A simple and beautiful desktop with its own apps and store.",
+      "website": "https://elementary.io",
+      "basedOn": "Ubuntu LTS",
+      "desktop": "Pantheon",
+      "release": "Follows Ubuntu LTS",
+      "pros": [
+        "Beautiful and consistent design",
+        "AppCenter with checked apps",
+        "Simple settings"
+      ],
+      "cons": [
+        "Less customizable than other desktops",
+        "The download page asks for a payment (you can enter 0)"
+      ],
+      "trending": false,
+      "highlight": "The cleanest design on Linux",
+      "features": [
+        "macOS like dock",
+        "Curated AppCenter",
+        "Simple settings"
+      ]
+    },
+    {
+      "id": "lmde",
+      "name": "LMDE",
+      "manager": "apt",
+      "color": "#6aa84f",
+      "level": "Intermediate",
+      "forWho": "Mint fans who prefer Debian",
+      "description": "Linux Mint built on Debian instead of Ubuntu.",
+      "website": "https://linuxmint.com",
+      "basedOn": "Debian",
+      "desktop": "Cinnamon",
+      "release": "Follows Debian stable",
+      "pros": [
+        "The Mint look on a Debian base",
+        "No Snap",
+        "Stable"
+      ],
+      "cons": [
+        "Fewer users than the main Mint",
+        "Older drivers than Ubuntu based Mint"
+      ],
+      "trending": false,
+      "highlight": "Linux Mint on pure Debian",
+      "features": [
+        "Cinnamon desktop",
+        "No Snap",
+        "Debian base"
+      ]
+    },
+    {
+      "id": "mx",
+      "name": "MX Linux",
+      "manager": "apt",
+      "color": "#4f8cc9",
+      "level": "Beginner",
+      "forWho": "Old computers and stable setups",
+      "description": "A light Debian based system with many handy tools.",
+      "website": "https://mxlinux.org",
+      "basedOn": "Debian stable",
+      "desktop": "Xfce",
+      "release": "Follows Debian stable",
+      "pros": [
+        "Fast on old computers",
+        "Many handy MX tools",
+        "Live USB that can save your files"
+      ],
+      "cons": [
+        "The default look is a bit old",
+        "Starts with sysVinit by default (systemd is optional)"
+      ],
+      "trending": false,
+      "highlight": "Gives old laptops a second life",
+      "features": [
+        "Very light",
+        "MX Tools",
+        "Live USB saves files"
+      ]
+    },
+    {
+      "id": "kali",
+      "name": "Kali Linux",
+      "manager": "apt",
+      "color": "#367bf0",
+      "level": "Intermediate",
+      "forWho": "Security and networking classes",
+      "description": "Debian based, comes with hundreds of security tools.",
+      "website": "https://www.kali.org",
+      "basedOn": "Debian testing",
+      "desktop": "Xfce",
+      "release": "Rolling",
+      "pros": [
+        "Hundreds of security tools ready",
+        "Great for networking and security classes",
+        "Can run from a USB stick"
+      ],
+      "cons": [
+        "Not made for daily use",
+        "Use the tools only on networks you own"
+      ],
+      "video": "82ETAS7kTrU",
+      "trending": false,
+      "highlight": "Security tools ready to use",
+      "features": [
+        "600+ security tools",
+        "Live USB",
+        "Made for labs"
+      ]
+    },
+    {
+      "id": "nobara",
+      "name": "Nobara",
+      "manager": "dnf",
+      "color": "#b9a3ff",
+      "level": "Intermediate",
+      "forWho": "Gamers who like Fedora",
+      "description": "Fedora with gaming drivers and codecs already set up.",
+      "website": "https://nobaraproject.org",
+      "basedOn": "Fedora",
+      "desktop": "KDE Plasma",
+      "release": "Follows Fedora",
+      "pros": [
+        "Gaming fixes and drivers ready",
+        "Codecs included",
+        "Steam and OBS ready"
+      ],
+      "cons": [
+        "Made by a small team",
+        "Differs from Fedora in some places"
+      ],
+      "video": "Gmx5bGZrQCs",
+      "trending": false,
+      "highlight": "Fedora tuned for games",
+      "features": [
+        "Gaming kernel",
+        "Codecs ready",
+        "Steam ready"
+      ]
+    },
+    {
+      "id": "rocky",
+      "name": "Rocky Linux",
+      "manager": "dnf",
+      "color": "#10b981",
+      "level": "Intermediate",
+      "forWho": "Servers and learning enterprise Linux",
+      "description": "A free system that is built to be the same as Red Hat Enterprise Linux.",
+      "website": "https://rockylinux.org",
+      "basedOn": "Compatible with Red Hat Enterprise Linux",
+      "desktop": "GNOME (or no desktop)",
+      "release": "Point releases with about 10 years of support",
+      "pros": [
+        "Very long support",
+        "Learn the same system that companies use",
+        "Great for servers"
+      ],
+      "cons": [
+        "Old software for a desktop",
+        "Fewer desktop apps"
+      ],
+      "trending": false,
+      "highlight": "The same system companies run",
+      "features": [
+        "10 years of support",
+        "RHEL compatible",
+        "Server ready"
+      ]
+    },
+    {
+      "id": "alma",
+      "name": "AlmaLinux",
+      "manager": "dnf",
+      "color": "#5fa8d3",
+      "level": "Intermediate",
+      "forWho": "Servers and learning enterprise Linux",
+      "description": "A free Red Hat compatible system with long support.",
+      "website": "https://almalinux.org",
+      "basedOn": "Compatible with Red Hat Enterprise Linux",
+      "desktop": "GNOME (or no desktop)",
+      "release": "Point releases with about 10 years of support",
+      "pros": [
+        "Very long support",
+        "Run by a non-profit foundation",
+        "Great for servers"
+      ],
+      "cons": [
+        "Old software for a desktop",
+        "Fewer desktop apps"
+      ],
+      "trending": false,
+      "highlight": "Free enterprise Linux for servers",
+      "features": [
+        "10 years of support",
+        "RHEL compatible",
+        "Non-profit"
+      ]
+    },
+    {
+      "id": "leap",
+      "name": "openSUSE Leap",
+      "manager": "zypper",
+      "color": "#73ba25",
+      "level": "Intermediate",
+      "forWho": "People who want stable and predictable",
+      "description": "The stable version of openSUSE, updated in big steps.",
+      "website": "https://www.opensuse.org",
+      "basedOn": "SUSE Linux Enterprise",
+      "desktop": "KDE Plasma",
+      "release": "A new point release every year",
+      "pros": [
+        "Very stable",
+        "YaST settings tools",
+        "Snapshots to undo changes"
+      ],
+      "cons": [
+        "Older software",
+        "Smaller community"
+      ],
+      "trending": false,
+      "highlight": "openSUSE that changes slowly",
+      "features": [
+        "Very stable",
+        "YaST settings",
+        "Snapshots"
+      ]
+    },
+    {
+      "id": "garuda",
+      "name": "Garuda Linux",
+      "manager": "pacman",
+      "color": "#cba6f7",
+      "level": "Intermediate",
+      "forWho": "Gamers and people who want a pretty Arch",
+      "description": "Arch with a colorful desktop and snapshots, ready after install.",
+      "website": "https://garudalinux.org",
+      "basedOn": "Arch Linux",
+      "desktop": "KDE Plasma (themed)",
+      "release": "Rolling",
+      "pros": [
+        "Looks amazing right after install",
+        "Automatic snapshots before updates",
+        "Gaming edition"
+      ],
+      "cons": [
+        "Heavy on old computers",
+        "Many effects you may want to turn off"
+      ],
+      "trending": false,
+      "highlight": "A gaming Arch with wow effects",
+      "features": [
+        "Themed KDE",
+        "Auto snapshots",
+        "Gaming tools"
+      ]
+    },
+    {
+      "id": "cachy",
+      "name": "CachyOS",
+      "manager": "pacman",
+      "color": "#00b3a4",
+      "level": "Intermediate",
+      "forWho": "People who want speed",
+      "description": "Arch with a fast kernel and packages built for new processors.",
+      "website": "https://cachyos.org",
+      "basedOn": "Arch Linux",
+      "desktop": "KDE Plasma (many others at install)",
+      "release": "Rolling",
+      "pros": [
+        "Packages and kernels tuned for speed",
+        "Number 1 on DistroWatch in 2026",
+        "Many desktops to pick at install"
+      ],
+      "cons": [
+        "Not made for complete beginners",
+        "Rolling updates need attention"
+      ],
+      "video": "D4M9puOm7dg",
+      "trending": true,
+      "highlight": "Arch, tuned for speed",
+      "features": [
+        "Optimized kernels",
+        "CPU tuned packages",
+        "Fast installer"
+      ]
+    },
+    {
+      "id": "omarchy",
+      "name": "Omarchy",
+      "manager": "pacman",
+      "color": "#a6e3a1",
+      "level": "Intermediate",
+      "forWho": "Developers who want a ready Hyprland",
+      "description": "Arch Linux with a complete Hyprland desktop, themes and apps set up for you.",
+      "website": "https://omarchy.org",
+      "basedOn": "Arch Linux",
+      "desktop": "Hyprland",
+      "release": "Rolling",
+      "pros": [
+        "A beautiful Hyprland setup in minutes",
+        "Keyboard first, very fast to use",
+        "Many themes you switch with one key"
+      ],
+      "cons": [
+        "Opinionated: many choices are made for you",
+        "You need to learn the keyboard shortcuts"
+      ],
+      "trending": true,
+      "highlight": "A finished Hyprland setup in minutes",
+      "features": [
+        "Hyprland ready",
+        "Switch themes fast",
+        "Keyboard first"
+      ]
     }
   ],
   "packages": [
@@ -106,7 +667,10 @@
         "pacman"
       ],
       "description": "A modern tiling window manager for Wayland, with animations and rounded corners.",
-      "why": "The most popular choice for ricing: it looks great and everything is set in one config file."
+      "why": "The most popular choice for ricing: it looks great and everything is set in one config file.",
+      "video": "yjyEaoi6qeM",
+      "trending": true,
+      "highlight": "Smooth animations and blur on Wayland"
     },
     {
       "id": 2,
@@ -123,7 +687,9 @@
         "pacman"
       ],
       "description": "A simple and stable tiling window manager for Wayland.",
-      "why": "It works on almost every distro, so it is a calm first step into tiling."
+      "why": "It works on almost every distro, so it is a calm first step into tiling.",
+      "trending": false,
+      "highlight": "i3 config, but on Wayland"
     },
     {
       "id": 3,
@@ -140,7 +706,9 @@
         "pacman"
       ],
       "description": "A tiling window manager for X11, controlled with shell commands.",
-      "why": "Good for older laptops and for people who like to script everything."
+      "why": "Good for older laptops and for people who like to script everything.",
+      "trending": false,
+      "highlight": "Controlled only by shell commands"
     },
     {
       "id": 4,
@@ -157,7 +725,10 @@
         "pacman"
       ],
       "description": "The status bar at the top of the screen, for Wayland.",
-      "why": "Shows the clock, battery, Wi-Fi and workspaces. You style it with CSS, like a web page."
+      "why": "Shows the clock, battery, Wi-Fi and workspaces. You style it with CSS, like a web page.",
+      "video": "ZDAgvVt4_6U",
+      "trending": false,
+      "highlight": "Every module styled with CSS"
     },
     {
       "id": 5,
@@ -174,7 +745,9 @@
         "pacman"
       ],
       "description": "A status bar for X11 window managers.",
-      "why": "The classic bar for BSPWM and i3 setups."
+      "why": "The classic bar for BSPWM and i3 setups.",
+      "trending": false,
+      "highlight": "The classic bar for X11 rices"
     },
     {
       "id": 6,
@@ -191,7 +764,9 @@
         "pacman"
       ],
       "description": "An app launcher: press a key, type a name, open the app.",
-      "why": "A tiling window manager has no start menu. Rofi is the start menu."
+      "why": "A tiling window manager has no start menu. Rofi is the start menu.",
+      "trending": false,
+      "highlight": "Launcher, window switcher and menus in one"
     },
     {
       "id": 7,
@@ -208,7 +783,9 @@
         "pacman"
       ],
       "description": "A small app launcher made for Wayland.",
-      "why": "A light alternative to Rofi for Hyprland and Sway."
+      "why": "A light alternative to Rofi for Hyprland and Sway.",
+      "trending": false,
+      "highlight": "Simple launcher made for Wayland"
     },
     {
       "id": 8,
@@ -225,7 +802,9 @@
         "pacman"
       ],
       "description": "Shows small notification pop-ups.",
-      "why": "Without it you never see messages like 'battery low' in a tiling setup."
+      "why": "Without it you never see messages like 'battery low' in a tiling setup.",
+      "trending": false,
+      "highlight": "Notifications you style with one file"
     },
     {
       "id": 9,
@@ -242,7 +821,9 @@
         "pacman"
       ],
       "description": "An image viewer that can also set your wallpaper.",
-      "why": "The easiest way to put a wallpaper on an X11 desktop."
+      "why": "The easiest way to put a wallpaper on an X11 desktop.",
+      "trending": false,
+      "highlight": "Image viewer and wallpaper setter in one"
     },
     {
       "id": 10,
@@ -259,7 +840,9 @@
         "pacman"
       ],
       "description": "A shell: the program that reads the commands you type.",
-      "why": "Better autocomplete than Bash and lots of themes (Oh My Zsh)."
+      "why": "Better autocomplete than Bash and lots of themes (Oh My Zsh).",
+      "trending": false,
+      "highlight": "Plugins and themes with Oh My Zsh"
     },
     {
       "id": 11,
@@ -276,7 +859,9 @@
         "pacman"
       ],
       "description": "A friendly shell that suggests commands while you type.",
-      "why": "Perfect for beginners: it is helpful with zero configuration."
+      "why": "Perfect for beginners: it is helpful with zero configuration.",
+      "trending": false,
+      "highlight": "Suggests commands while you type"
     },
     {
       "id": 12,
@@ -293,7 +878,9 @@
         "pacman"
       ],
       "description": "A fast terminal that uses your graphics card.",
-      "why": "Simple, fast and configured with a single text file."
+      "why": "Simple, fast and configured with a single text file.",
+      "trending": false,
+      "highlight": "Drawn by the GPU, almost no delay"
     },
     {
       "id": 13,
@@ -310,7 +897,9 @@
         "pacman"
       ],
       "description": "A fast terminal with tabs, splits and image previews.",
-      "why": "Very popular in riced setups, with hundreds of ready-made themes."
+      "why": "Very popular in riced setups, with hundreds of ready-made themes.",
+      "trending": false,
+      "highlight": "Shows images inside the terminal"
     },
     {
       "id": 14,
@@ -327,7 +916,9 @@
         "pacman"
       ],
       "description": "A tiny and very fast terminal for Wayland.",
-      "why": "Starts instantly and uses almost no memory."
+      "why": "Starts instantly and uses almost no memory.",
+      "trending": false,
+      "highlight": "Tiny and very fast on Wayland"
     },
     {
       "id": 15,
@@ -344,7 +935,9 @@
         "pacman"
       ],
       "description": "Splits one terminal into many panes and keeps your work open.",
-      "why": "Very useful when you work on a server over SSH."
+      "why": "Very useful when you work on a server over SSH.",
+      "trending": false,
+      "highlight": "Your terminal keeps running after you leave"
     },
     {
       "id": 16,
@@ -361,7 +954,9 @@
         "pacman"
       ],
       "description": "Shows CPU, memory, disk and running programs.",
-      "why": "It is the Linux Task Manager, only prettier."
+      "why": "It is the Linux Task Manager, only prettier.",
+      "trending": true,
+      "highlight": "Graphs for CPU, memory, disk and network"
     },
     {
       "id": 17,
@@ -377,7 +972,9 @@
         "pacman"
       ],
       "description": "Prints your distro logo and system info in the terminal.",
-      "why": "The screenshot every ricer posts. Also a quick way to see your hardware."
+      "why": "The screenshot every ricer posts. Also a quick way to see your hardware.",
+      "trending": true,
+      "highlight": "System info and a logo in one second"
     },
     {
       "id": 18,
@@ -394,7 +991,9 @@
         "pacman"
       ],
       "description": "Fuzzy search for files and for your command history.",
-      "why": "Press Ctrl+R and find any old command in one second."
+      "why": "Press Ctrl+R and find any old command in one second.",
+      "trending": false,
+      "highlight": "Fuzzy search for files and history"
     },
     {
       "id": 19,
@@ -411,7 +1010,9 @@
         "pacman"
       ],
       "description": "Searches text inside files, very fast.",
-      "why": "A faster and simpler grep."
+      "why": "A faster and simpler grep.",
+      "trending": false,
+      "highlight": "Searches a whole project in milliseconds"
     },
     {
       "id": 20,
@@ -428,7 +1029,10 @@
         "pacman"
       ],
       "description": "A text editor that runs inside the terminal.",
-      "why": "Fast, works everywhere and can grow into a full code editor."
+      "why": "Fast, works everywhere and can grow into a full code editor.",
+      "video": "BP6loTl2TR4",
+      "trending": false,
+      "highlight": "Editor you extend with Lua plugins"
     },
     {
       "id": 21,
@@ -445,7 +1049,9 @@
         "pacman"
       ],
       "description": "Plays almost any video or audio file.",
-      "why": "Opens the files that other players refuse to open."
+      "why": "Opens the files that other players refuse to open.",
+      "trending": false,
+      "highlight": "Plays almost every file, no codecs needed"
     },
     {
       "id": 22,
@@ -462,7 +1068,9 @@
         "pacman"
       ],
       "description": "A minimal video player controlled from the keyboard.",
-      "why": "Light and fits perfectly in a tiling setup."
+      "why": "Light and fits perfectly in a tiling setup.",
+      "trending": false,
+      "highlight": "Minimal player, controlled by keys"
     },
     {
       "id": 23,
@@ -479,7 +1087,9 @@
         "pacman"
       ],
       "description": "An image editor, a free alternative to Photoshop.",
-      "why": "Edit photos or make your own wallpapers."
+      "why": "Edit photos or make your own wallpapers.",
+      "trending": false,
+      "highlight": "Layers, masks and filters for photos"
     },
     {
       "id": 24,
@@ -495,7 +1105,9 @@
         "pacman"
       ],
       "description": "Records or streams your screen.",
-      "why": "Record your desktop to show off your rice."
+      "why": "Record your desktop to show off your rice.",
+      "trending": false,
+      "highlight": "Record and stream with scenes"
     },
     {
       "id": 25,
@@ -512,7 +1124,9 @@
         "pacman"
       ],
       "description": "A light file manager with windows and icons.",
-      "why": "Tiling window managers come without a file manager. Thunar is fast and simple."
+      "why": "Tiling window managers come without a file manager. Thunar is fast and simple.",
+      "trending": false,
+      "highlight": "Light file manager with bulk rename"
     },
     {
       "id": 26,
@@ -527,7 +1141,9 @@
         "pacman"
       ],
       "description": "A file manager inside the terminal, with image previews.",
-      "why": "Move through your files with the keyboard, very fast."
+      "why": "Move through your files with the keyboard, very fast.",
+      "trending": true,
+      "highlight": "Terminal file manager with image previews"
     },
     {
       "id": 27,
@@ -544,7 +1160,9 @@
         "pacman"
       ],
       "description": "Saves the history of your files and talks to GitHub.",
-      "why": "Almost every dotfiles repo and coding project needs it."
+      "why": "Almost every dotfiles repo and coding project needs it.",
+      "trending": false,
+      "highlight": "Every change saved and undoable"
     },
     {
       "id": 28,
@@ -561,7 +1179,9 @@
         "pacman"
       ],
       "description": "Downloads files from the internet, from the terminal.",
-      "why": "Many install guides start with a curl command."
+      "why": "Many install guides start with a curl command.",
+      "trending": false,
+      "highlight": "Talk to any URL or API from the terminal"
     },
     {
       "id": 29,
@@ -578,7 +1198,9 @@
         "pacman"
       ],
       "description": "A second app store that works on every distro.",
-      "why": "Gets you apps like Spotify or Discord even when your distro does not have them."
+      "why": "Gets you apps like Spotify or Discord even when your distro does not have them.",
+      "trending": false,
+      "highlight": "Apps that run the same on every distro"
     },
     {
       "id": 30,
@@ -594,7 +1216,9 @@
         "zypper"
       ],
       "description": "Takes snapshots of your system so you can go back in time.",
-      "why": "If an update breaks something, you restore yesterday's system in minutes."
+      "why": "If an update breaks something, you restore yesterday's system in minutes.",
+      "trending": false,
+      "highlight": "Undo a broken update in two clicks"
     },
     {
       "id": 31,
@@ -610,14 +1234,17 @@
         "pacman"
       ],
       "description": "A simple firewall.",
-      "why": "One command (sudo ufw enable) blocks unwanted connections."
+      "why": "One command (sudo ufw enable) blocks unwanted connections.",
+      "trending": false,
+      "highlight": "A firewall with one simple command"
     },
     {
-      "name": "dsdsa",
-      "install": "s",
-      "type": "package",
-      "category": "Apps",
+      "id": 32,
+      "name": "i3",
+      "install": "i3",
       "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
       "recommended": false,
       "managers": [
         "apt",
@@ -625,9 +1252,3096 @@
         "zypper",
         "pacman"
       ],
-      "description": "A package you added yourself.",
-      "why": "You added it to your own list.",
-      "id": 32
+      "description": "A tiling window manager for X11 that you set up with one plain text file.",
+      "why": "The classic first tiling window manager, with years of guides and example configs to copy.",
+      "video": "RaP7sNCJYV0",
+      "trending": false,
+      "highlight": "The most copied tiling config ever"
+    },
+    {
+      "id": 33,
+      "name": "Awesome",
+      "install": "awesome",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A tiling window manager for X11 that you configure in the Lua language.",
+      "why": "Good if you want to program your own desktop and add widgets.",
+      "trending": false,
+      "highlight": "The desktop is a Lua program"
+    },
+    {
+      "id": 34,
+      "name": "Openbox",
+      "install": "openbox",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A very light floating window manager for X11, easy to theme.",
+      "why": "Runs fast on old laptops and uses almost no memory.",
+      "trending": false,
+      "highlight": "Right click the desktop to get the menu"
+    },
+    {
+      "id": 35,
+      "name": "xmonad",
+      "install": "xmonad",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A tiling window manager for X11, written and configured in Haskell.",
+      "why": "A good pick if you like functional programming and want a very stable desktop.",
+      "trending": false,
+      "highlight": "Configured in Haskell, never crashes"
+    },
+    {
+      "id": 36,
+      "name": "DWM",
+      "install": "dwm",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "pacman"
+      ],
+      "description": "A tiny tiling window manager from suckless that you change by editing its C code.",
+      "why": "It teaches you how a window manager works, but it is not for beginners.",
+      "trending": false,
+      "highlight": "About 2000 lines of C, nothing more"
+    },
+    {
+      "id": 37,
+      "name": "Herbstluftwm",
+      "install": "herbstluftwm",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A manual tiling window manager for X11, configured with shell commands.",
+      "why": "Simple to learn and easy to script, with a clear config file.",
+      "trending": false,
+      "highlight": "You split the screen by hand"
+    },
+    {
+      "id": 38,
+      "name": "Qtile",
+      "install": "qtile",
+      "selected": false,
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "pacman"
+      ],
+      "description": "A tiling window manager written in Python that works on X11 and Wayland.",
+      "why": "If you know Python, you can configure it with code you already understand.",
+      "trending": false,
+      "highlight": "Configured in Python"
+    },
+    {
+      "id": 39,
+      "name": "Tint2",
+      "install": "tint2",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple panel and taskbar for X11 window managers like Openbox.",
+      "why": "Gives a light window manager a bar with a clock and the open windows.",
+      "trending": false,
+      "highlight": "Light taskbar for Openbox"
+    },
+    {
+      "id": 40,
+      "name": "Fuzzel",
+      "install": "fuzzel",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "An app launcher for Wayland, small and fast.",
+      "why": "A lighter alternative to Wofi that looks clean with Hyprland and Sway.",
+      "trending": false,
+      "highlight": "Fast launcher with icons for Wayland"
+    },
+    {
+      "id": 41,
+      "name": "Dmenu",
+      "install": "dmenu",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A very small launcher for X11 that shows a text list at the top of the screen.",
+      "why": "It is used with dwm and i3, and many scripts use it for menus.",
+      "trending": false,
+      "highlight": "A menu that reads a list and returns a choice"
+    },
+    {
+      "id": 42,
+      "name": "Mako",
+      "install": "mako",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "pacman"
+      ],
+      "description": "A light notification daemon for Wayland.",
+      "why": "It shows your notifications on Sway and Hyprland and is easy to restyle.",
+      "trending": false,
+      "highlight": "Light notifications for Wayland"
+    },
+    {
+      "id": 43,
+      "name": "Swaylock",
+      "install": "swaylock",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A screen locker for Wayland compositors.",
+      "why": "Locks the screen when you leave the computer, and works with Sway and others.",
+      "trending": false,
+      "highlight": "Lock screen with colors and images"
+    },
+    {
+      "id": 44,
+      "name": "Swayidle",
+      "install": "swayidle",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Runs a command when the computer is idle, for example to lock the screen.",
+      "why": "Together with Swaylock it locks the screen after a few minutes.",
+      "trending": false,
+      "highlight": "Lock or sleep after you stop using the PC"
+    },
+    {
+      "id": 45,
+      "name": "Swaybg",
+      "install": "swaybg",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows a wallpaper on Wayland.",
+      "why": "Wayland has no wallpaper tool by default, so you need one like this.",
+      "trending": false,
+      "highlight": "The simplest wallpaper for Wayland"
+    },
+    {
+      "id": 46,
+      "name": "Hyprpaper",
+      "install": "hyprpaper",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "pacman"
+      ],
+      "description": "A fast wallpaper tool made for Hyprland.",
+      "why": "It reads its settings from a simple file next to your Hyprland config.",
+      "trending": false,
+      "highlight": "Fast wallpaper made by the Hyprland team"
+    },
+    {
+      "id": 47,
+      "name": "Hyprlock",
+      "install": "hyprlock",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "pacman"
+      ],
+      "description": "The screen locker made by the Hyprland team, with blur and custom widgets.",
+      "why": "It matches the look of Hyprland and is easy to theme.",
+      "trending": false,
+      "highlight": "Lock screen with blur and widgets"
+    },
+    {
+      "id": 48,
+      "name": "Hypridle",
+      "install": "hypridle",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "pacman"
+      ],
+      "description": "The idle daemon of Hyprland: lock the screen or turn off the display after a while.",
+      "why": "It saves battery and works together with Hyprlock.",
+      "trending": false,
+      "highlight": "Turns the screen off when idle"
+    },
+    {
+      "id": 49,
+      "name": "Swww",
+      "install": "swww",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "pacman"
+      ],
+      "description": "A wallpaper daemon for Wayland with smooth animated transitions.",
+      "why": "Nice if you want the wallpaper to change with an animation.",
+      "trending": false,
+      "highlight": "Wallpapers that change with an animation"
+    },
+    {
+      "id": 50,
+      "name": "Grim",
+      "install": "grim",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A screenshot tool for Wayland.",
+      "why": "Use it with Slurp to take a screenshot of a part of the screen.",
+      "trending": false,
+      "highlight": "Screenshots on Wayland"
+    },
+    {
+      "id": 51,
+      "name": "Slurp",
+      "install": "slurp",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Lets you select a region of the screen on Wayland.",
+      "why": "Slurp gives the region and Grim takes the picture.",
+      "trending": false,
+      "highlight": "Select any part of the screen"
+    },
+    {
+      "id": 52,
+      "name": "Wl-clipboard",
+      "install": "wl-clipboard",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Copy and paste from the terminal on Wayland (wl-copy and wl-paste).",
+      "why": "Without it, scripts and the terminal cannot use the clipboard on Wayland.",
+      "trending": false,
+      "highlight": "Copy and paste from scripts on Wayland"
+    },
+    {
+      "id": 53,
+      "name": "Brightnessctl",
+      "install": "brightnessctl",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Change the screen brightness from the terminal or with a key.",
+      "why": "Makes the brightness keys of your laptop work on a tiling window manager.",
+      "trending": false,
+      "highlight": "Makes the brightness keys work"
+    },
+    {
+      "id": 54,
+      "name": "Playerctl",
+      "install": "playerctl",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Control music players (play, pause, next) from the terminal.",
+      "why": "Lets the media keys and your bar control Spotify, VLC and others.",
+      "trending": false,
+      "highlight": "One command controls every player"
+    },
+    {
+      "id": 55,
+      "name": "Lightdm",
+      "install": "lightdm",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A light login screen that works with many desktops.",
+      "why": "Pick it if you want a simple login screen with any window manager.",
+      "trending": false,
+      "highlight": "Login screen that works with any desktop"
+    },
+    {
+      "id": 56,
+      "name": "Sddm",
+      "install": "sddm",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The login screen of KDE Plasma, with many themes.",
+      "why": "Easy to theme, and it can start both X11 and Wayland sessions.",
+      "trending": false,
+      "highlight": "Themeable login screen of KDE"
+    },
+    {
+      "id": 57,
+      "name": "Arandr",
+      "install": "arandr",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple window to arrange your monitors on X11.",
+      "why": "Set the position of two screens by dragging them, then save it as a script.",
+      "trending": false,
+      "highlight": "Drag your monitors into place"
+    },
+    {
+      "id": 58,
+      "name": "Xclip",
+      "install": "xclip",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Copy and paste from the terminal on X11.",
+      "why": "Many scripts and Neovim need it to use the system clipboard.",
+      "trending": false,
+      "highlight": "Copy and paste from scripts on X11"
+    },
+    {
+      "id": 59,
+      "name": "Maim",
+      "install": "maim",
+      "selected": false,
+      "type": "package",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A screenshot tool for X11.",
+      "why": "Fast and small, good with a key binding in i3 or BSPWM.",
+      "trending": false,
+      "highlight": "Fast screenshots on X11"
+    },
+    {
+      "id": 60,
+      "name": "Picom",
+      "install": "picom",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A compositor for X11 that adds transparency, shadows and rounded corners.",
+      "why": "You need it for blur and nice looking windows on i3 or BSPWM.",
+      "trending": false,
+      "highlight": "Shadows, blur and transparency on X11"
+    },
+    {
+      "id": 61,
+      "name": "Nitrogen",
+      "install": "nitrogen",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A small program to set the wallpaper on X11.",
+      "why": "Pick a folder, click a picture, and it remembers your choice.",
+      "trending": false,
+      "highlight": "Pick a wallpaper with a click"
+    },
+    {
+      "id": 62,
+      "name": "Lxappearance",
+      "install": "lxappearance",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A window to change the GTK theme, the icons and the cursor.",
+      "why": "The easiest way to theme GTK apps when you do not use a full desktop environment.",
+      "trending": false,
+      "highlight": "Change GTK themes, icons and cursor"
+    },
+    {
+      "id": 63,
+      "name": "Qt5ct",
+      "install": "qt5ct",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "pacman"
+      ],
+      "description": "A tool to set the theme of Qt apps outside KDE.",
+      "why": "Makes Qt apps like VLC and OBS match the rest of your desktop.",
+      "trending": false,
+      "highlight": "Makes Qt apps match your theme"
+    },
+    {
+      "id": 64,
+      "name": "Papirus Icons",
+      "install": "papirus-icon-theme",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A popular icon theme with clean flat icons.",
+      "why": "It replaces the plain icons and makes your desktop look finished in a minute.",
+      "trending": false,
+      "highlight": "Thousands of matching flat icons"
+    },
+    {
+      "id": 65,
+      "name": "Cava",
+      "install": "cava",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A music visualizer that draws bars in the terminal.",
+      "why": "A classic for ricing screenshots, it reacts to the music you play.",
+      "trending": false,
+      "highlight": "Music bars that dance in the terminal"
+    },
+    {
+      "id": 66,
+      "name": "Cmatrix",
+      "install": "cmatrix",
+      "selected": false,
+      "type": "package",
+      "category": "Customization",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The falling green letters from the Matrix movie, in your terminal.",
+      "why": "It does nothing useful, but it is a fun part of a ricing screenshot.",
+      "trending": false,
+      "highlight": "The Matrix rain in your terminal"
+    },
+    {
+      "id": 67,
+      "name": "Starship",
+      "install": "starship",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A fast prompt for any shell that shows the git branch, the language and more.",
+      "why": "One line in your config gives you a modern prompt in Zsh, Fish or Bash.",
+      "trending": true,
+      "highlight": "Pretty prompt for every shell"
+    },
+    {
+      "id": 68,
+      "name": "Zoxide",
+      "install": "zoxide",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A smarter cd command that remembers the folders you use.",
+      "why": "After a few days, typing z and a part of the name jumps to the right folder.",
+      "trending": true,
+      "highlight": "cd that remembers where you go"
+    },
+    {
+      "id": 69,
+      "name": "Bat",
+      "install": "bat",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Like cat, but with colors and line numbers.",
+      "why": "Makes reading files in the terminal much nicer.",
+      "trending": false,
+      "highlight": "cat with colors and line numbers"
+    },
+    {
+      "id": 70,
+      "name": "Eza",
+      "install": "eza",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A modern ls with colors, icons and a tree view.",
+      "why": "A better looking ls for almost no effort.",
+      "trending": false,
+      "highlight": "ls with icons, colors and git status"
+    },
+    {
+      "id": 71,
+      "name": "Jq",
+      "install": "jq",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A tool to read and filter JSON in the terminal.",
+      "why": "Very useful when you work with APIs, like your json-server.",
+      "trending": false,
+      "highlight": "Filter and pretty print JSON"
+    },
+    {
+      "id": 72,
+      "name": "Htop",
+      "install": "htop",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A colorful view of the running programs and the memory they use.",
+      "why": "Lets you see what makes your computer slow and close it.",
+      "trending": false,
+      "highlight": "See and stop what slows your PC"
+    },
+    {
+      "id": 73,
+      "name": "Ncdu",
+      "install": "ncdu",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows which folders use the most disk space.",
+      "why": "Find in seconds what filled your disk.",
+      "trending": false,
+      "highlight": "Find what filled your disk"
+    },
+    {
+      "id": 74,
+      "name": "Tree",
+      "install": "tree",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Prints the folders and files as a tree.",
+      "why": "Good to show the structure of a project.",
+      "trending": false,
+      "highlight": "See a folder as a tree"
+    },
+    {
+      "id": 75,
+      "name": "Ranger",
+      "install": "ranger",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A file manager for the terminal with Vim keys.",
+      "why": "Quick file browsing with previews and no mouse.",
+      "trending": false,
+      "highlight": "Browse files with Vim keys"
+    },
+    {
+      "id": 76,
+      "name": "Midnight Commander",
+      "install": "mc",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A file manager in the terminal with two panels.",
+      "why": "Copy and move files between two folders easily, even over SSH.",
+      "trending": false,
+      "highlight": "Two panels, copy files in a second"
+    },
+    {
+      "id": 77,
+      "name": "Lazygit",
+      "install": "lazygit",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A terminal screen for Git: stage, commit and push with a few keys.",
+      "why": "Faster than typing git commands once you learn the keys.",
+      "trending": true,
+      "highlight": "Git with menus in the terminal"
+    },
+    {
+      "id": 78,
+      "name": "Zellij",
+      "install": "zellij",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A terminal workspace like Tmux, with menus that show the keys.",
+      "why": "Easier to learn than Tmux because the keys are shown on the screen.",
+      "trending": false,
+      "highlight": "Tmux, but it shows you the keys"
+    },
+    {
+      "id": 79,
+      "name": "Screen",
+      "install": "screen",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Keeps programs running after you close the terminal.",
+      "why": "Useful when you work on a server through SSH.",
+      "trending": false,
+      "highlight": "Keep a program running over SSH"
+    },
+    {
+      "id": 80,
+      "name": "Terminator",
+      "install": "terminator",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A terminal that splits the window into many panels.",
+      "why": "Good for people who need many terminals at once and do not use tiling.",
+      "trending": false,
+      "highlight": "Split one window into many terminals"
+    },
+    {
+      "id": 81,
+      "name": "Tilix",
+      "install": "tilix",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A tiling terminal for GNOME with many panels.",
+      "why": "Splits the window in panels and has a clean look.",
+      "trending": false,
+      "highlight": "Tiling terminal for GNOME"
+    },
+    {
+      "id": 82,
+      "name": "Xterm",
+      "install": "xterm",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The oldest terminal for X11, very small.",
+      "why": "It always works, even on a broken system.",
+      "trending": false,
+      "highlight": "Works on every X11 system"
+    },
+    {
+      "id": 83,
+      "name": "Ghostty",
+      "install": "ghostty",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "pacman"
+      ],
+      "description": "A fast terminal that draws with the graphics card and has simple settings.",
+      "why": "One config file, good defaults and a modern look.",
+      "trending": true,
+      "highlight": "Native, fast and simple to set up"
+    },
+    {
+      "id": 84,
+      "name": "Tldr",
+      "install": "tldr",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "pacman"
+      ],
+      "description": "Short examples for commands, instead of the long manual.",
+      "why": "Type tldr tar and see the three commands you really need.",
+      "trending": false,
+      "highlight": "Examples instead of long manuals"
+    },
+    {
+      "id": 85,
+      "name": "Duf",
+      "install": "duf",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A nicer view of your disks and how full they are.",
+      "why": "Easier to read than the df command.",
+      "trending": false,
+      "highlight": "Disk usage you can read at a glance"
+    },
+    {
+      "id": 86,
+      "name": "GNOME Terminal",
+      "install": "gnome-terminal",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The default terminal of GNOME with tabs and profiles.",
+      "why": "Simple and stable if you do not need anything fancy.",
+      "trending": false,
+      "highlight": "Profiles and tabs, works out of the box"
+    },
+    {
+      "id": 87,
+      "name": "Konsole",
+      "install": "konsole",
+      "selected": false,
+      "type": "package",
+      "category": "Terminal & Shell",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The terminal of KDE Plasma with tabs and split view.",
+      "why": "Many settings are in menus, so you do not have to edit files.",
+      "trending": false,
+      "highlight": "Tabs, splits and profiles for KDE"
+    },
+    {
+      "id": 88,
+      "name": "Nautilus",
+      "install": "nautilus",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The file manager of GNOME, simple and clean.",
+      "why": "Easy to use and a good default if you use GNOME.",
+      "trending": false,
+      "highlight": "Clean and simple, the GNOME way"
+    },
+    {
+      "id": 89,
+      "name": "Dolphin",
+      "install": "dolphin",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The file manager of KDE with tabs, split view and many features.",
+      "why": "The most powerful graphical file manager on Linux.",
+      "trending": false,
+      "highlight": "Tabs, split view and a terminal panel"
+    },
+    {
+      "id": 90,
+      "name": "Nemo",
+      "install": "nemo",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The file manager of Linux Mint, similar to Windows Explorer.",
+      "why": "Familiar if you come from Windows.",
+      "trending": false,
+      "highlight": "Windows Explorer feeling"
+    },
+    {
+      "id": 91,
+      "name": "PCManFM",
+      "install": "pcmanfm",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A very light file manager.",
+      "why": "Good for old computers and for window managers.",
+      "trending": false,
+      "highlight": "Runs on very old computers"
+    },
+    {
+      "id": 92,
+      "name": "File Roller",
+      "install": "file-roller",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Open and create zip, tar and other archives with a window.",
+      "why": "Lets you open any archive without the terminal.",
+      "trending": false,
+      "highlight": "Open any archive with a double click"
+    },
+    {
+      "id": 93,
+      "name": "GNOME Calculator",
+      "install": "gnome-calculator",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple calculator with a scientific mode.",
+      "why": "A quick calculator that does not need a browser.",
+      "trending": false,
+      "highlight": "Scientific mode and currency converter"
+    },
+    {
+      "id": 94,
+      "name": "Mousepad",
+      "install": "mousepad",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple text editor, like Notepad.",
+      "why": "Opens fast when you only need to change a small file.",
+      "trending": false,
+      "highlight": "Notepad for Linux"
+    },
+    {
+      "id": 95,
+      "name": "Flameshot",
+      "install": "flameshot",
+      "selected": false,
+      "type": "package",
+      "category": "Apps",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A screenshot tool where you can draw arrows and text on the picture.",
+      "why": "The easiest screenshot tool for a beginner.",
+      "trending": false,
+      "highlight": "Draw arrows and text on a screenshot"
+    },
+    {
+      "id": 96,
+      "name": "Wget",
+      "install": "wget",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Download files from the terminal.",
+      "why": "Many install guides use it.",
+      "trending": false,
+      "highlight": "Downloads that can resume"
+    },
+    {
+      "id": 97,
+      "name": "Rsync",
+      "install": "rsync",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Copy folders fast and send only what changed.",
+      "why": "The best tool for backups to a USB drive or a server.",
+      "trending": false,
+      "highlight": "Copies only what changed"
+    },
+    {
+      "id": 98,
+      "name": "Unzip",
+      "install": "unzip",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Open zip files from the terminal.",
+      "why": "Small, but you will need it sooner or later.",
+      "trending": false,
+      "highlight": "Opens zip files"
+    },
+    {
+      "id": 99,
+      "name": "Zip",
+      "install": "zip",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Create zip files from the terminal.",
+      "why": "Lets you send a folder as one file.",
+      "trending": false,
+      "highlight": "Makes zip files"
+    },
+    {
+      "id": 100,
+      "name": "Bash Completion",
+      "install": "bash-completion",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Press Tab to complete commands and options in Bash.",
+      "why": "Saves you a lot of typing.",
+      "trending": false,
+      "highlight": "Tab completes options too"
+    },
+    {
+      "id": 101,
+      "name": "TLP",
+      "install": "tlp",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Saves laptop battery by itself, with almost no setup.",
+      "why": "Install it, enable it, and your battery lasts longer.",
+      "trending": false,
+      "highlight": "Longer battery life with no setup"
+    },
+    {
+      "id": 102,
+      "name": "Powertop",
+      "install": "powertop",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows which programs use the most battery power.",
+      "why": "Helps you find what drains your laptop.",
+      "trending": false,
+      "highlight": "Shows what drains the battery"
+    },
+    {
+      "id": 103,
+      "name": "CUPS",
+      "install": "cups",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The printing system of Linux.",
+      "why": "You need it to use a printer.",
+      "trending": false,
+      "highlight": "Makes printers work"
+    },
+    {
+      "id": 104,
+      "name": "Pavucontrol",
+      "install": "pavucontrol",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A window to control the volume of each app and the sound devices.",
+      "why": "Fixes most sound problems on a window manager.",
+      "trending": false,
+      "highlight": "Volume for every app on its own"
+    },
+    {
+      "id": 105,
+      "name": "Blueman",
+      "install": "blueman",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A Bluetooth manager with a tray icon.",
+      "why": "Connect headphones and a mouse without the terminal.",
+      "trending": false,
+      "highlight": "Bluetooth from the tray"
+    },
+    {
+      "id": 106,
+      "name": "GNOME Disks",
+      "install": "gnome-disk-utility",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "See your disks, check their health and write USB sticks.",
+      "why": "A simple way to see what is on every disk.",
+      "trending": false,
+      "highlight": "Check disks and write USB sticks"
+    },
+    {
+      "id": 107,
+      "name": "GParted",
+      "install": "gparted",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Create and resize disk partitions with a window.",
+      "why": "The safest way to prepare a disk, for example for dual boot.",
+      "trending": false,
+      "highlight": "Resize partitions safely"
+    },
+    {
+      "id": 108,
+      "name": "Inxi",
+      "install": "inxi",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Prints a summary of your hardware and system.",
+      "why": "Good to copy when you ask for help in a forum.",
+      "trending": false,
+      "highlight": "Your whole system in one text"
+    },
+    {
+      "id": 109,
+      "name": "Nvtop",
+      "install": "nvtop",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Like htop, but for the graphics card.",
+      "why": "Shows how much the GPU is used by a game or a program.",
+      "trending": false,
+      "highlight": "htop for your graphics card"
+    },
+    {
+      "id": 110,
+      "name": "Smartmontools",
+      "install": "smartmontools",
+      "selected": false,
+      "type": "package",
+      "category": "System packages",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Checks if your SSD or hard disk is healthy.",
+      "why": "Warns you before a disk dies.",
+      "trending": false,
+      "highlight": "Warns you before a disk dies"
+    },
+    {
+      "id": 111,
+      "name": "Visual Studio Code",
+      "install": "code",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": true,
+      "managers": [],
+      "description": "The most used code editor, with thousands of extensions.",
+      "why": "Great for web development and for your React course.",
+      "flatpak": "com.visualstudio.code",
+      "trending": false,
+      "highlight": "Thousands of extensions, great for web"
+    },
+    {
+      "id": 112,
+      "name": "VSCodium",
+      "install": "vscodium",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "VS Code built without the Microsoft tracking and branding.",
+      "why": "The same editor, but fully open source.",
+      "flatpak": "com.vscodium.codium",
+      "trending": false,
+      "highlight": "VS Code without telemetry"
+    },
+    {
+      "id": 113,
+      "name": "IntelliJ IDEA",
+      "install": "intellij-idea",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "The free Community edition of the JetBrains IDE for Java.",
+      "why": "Very good for Java and Kotlin projects.",
+      "flatpak": "com.jetbrains.IntelliJ-IDEA-Community",
+      "trending": false,
+      "highlight": "Smart Java and Kotlin help"
+    },
+    {
+      "id": 114,
+      "name": "PyCharm",
+      "install": "pycharm",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "The free Community edition of the JetBrains IDE for Python.",
+      "why": "Finds your errors and runs your code with one click.",
+      "flatpak": "com.jetbrains.PyCharm-Community",
+      "trending": false,
+      "highlight": "Finds Python errors while you type"
+    },
+    {
+      "id": 115,
+      "name": "Android Studio",
+      "install": "android-studio",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "The official IDE for making Android apps.",
+      "why": "You need it if you want to build mobile apps.",
+      "flatpak": "com.google.AndroidStudio",
+      "trending": false,
+      "highlight": "Build and test Android apps"
+    },
+    {
+      "id": 116,
+      "name": "Postman",
+      "install": "postman",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "Send requests to an API and see the answer.",
+      "why": "Useful for testing your json-server routes.",
+      "flatpak": "com.getpostman.Postman",
+      "trending": false,
+      "highlight": "Test APIs without writing code"
+    },
+    {
+      "id": 117,
+      "name": "Insomnia",
+      "install": "insomnia",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "A clean tool to test REST and GraphQL APIs.",
+      "why": "A lighter alternative to Postman.",
+      "flatpak": "rest.insomnia.Insomnia",
+      "trending": false,
+      "highlight": "Light API client"
+    },
+    {
+      "id": 118,
+      "name": "DBeaver",
+      "install": "dbeaver",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [],
+      "description": "A program to look at many kinds of databases with one window.",
+      "why": "Works with MySQL, PostgreSQL, SQLite and more.",
+      "flatpak": "io.dbeaver.DBeaverCommunity",
+      "trending": false,
+      "highlight": "One window for every database"
+    },
+    {
+      "id": 119,
+      "name": "Vim",
+      "install": "vim",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A text editor for the terminal that you control only with the keyboard.",
+      "why": "It is on almost every server, so it is good to know the basics.",
+      "trending": false,
+      "highlight": "On every server, fully keyboard driven"
+    },
+    {
+      "id": 120,
+      "name": "Emacs",
+      "install": "emacs",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "An editor that can also be a mail client, a calendar and more.",
+      "why": "Very powerful if you like to customize everything.",
+      "trending": false,
+      "highlight": "An editor that can do everything"
+    },
+    {
+      "id": 121,
+      "name": "Nano",
+      "install": "nano",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The simplest editor for the terminal.",
+      "why": "The keys are shown at the bottom, so there is nothing to memorize.",
+      "trending": false,
+      "highlight": "Shortcuts are shown on screen"
+    },
+    {
+      "id": 122,
+      "name": "Micro",
+      "install": "micro",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A terminal editor that works like a normal editor, with Ctrl+C and Ctrl+V.",
+      "why": "The easiest terminal editor if Vim feels strange.",
+      "trending": false,
+      "highlight": "Ctrl+C and Ctrl+V in the terminal"
+    },
+    {
+      "id": 123,
+      "name": "Geany",
+      "install": "geany",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A small and fast code editor with many languages.",
+      "why": "Starts fast and is good for school projects.",
+      "trending": false,
+      "highlight": "Tiny IDE that starts instantly"
+    },
+    {
+      "id": 124,
+      "name": "Kate",
+      "install": "kate",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The advanced text editor of KDE, with tabs and syntax colors.",
+      "why": "A good middle step between Notepad and a full IDE.",
+      "trending": false,
+      "highlight": "Powerful editor with LSP support"
+    },
+    {
+      "id": 125,
+      "name": "GCC",
+      "install": "gcc",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The compiler for C and C++.",
+      "why": "You need it for any C program you write at the university.",
+      "trending": false,
+      "highlight": "Compiles C and C++"
+    },
+    {
+      "id": 126,
+      "name": "Make",
+      "install": "make",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Runs the build steps written in a Makefile.",
+      "why": "Many programs use it to compile and install.",
+      "trending": false,
+      "highlight": "Builds a project with one word"
+    },
+    {
+      "id": 127,
+      "name": "CMake",
+      "install": "cmake",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A tool that creates the build files for C and C++ projects.",
+      "why": "Most big C++ projects use it.",
+      "trending": false,
+      "highlight": "Build files for big C++ projects"
+    },
+    {
+      "id": 128,
+      "name": "GDB",
+      "install": "gdb",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A debugger for C and C++ programs.",
+      "why": "Lets you stop the program and look at the variables.",
+      "trending": false,
+      "highlight": "Stop a program and look inside"
+    },
+    {
+      "id": 129,
+      "name": "Node.js",
+      "install": "nodejs",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Runs JavaScript outside the browser.",
+      "why": "You need it for React, Vite and json-server.",
+      "trending": false,
+      "highlight": "JavaScript outside the browser"
+    },
+    {
+      "id": 130,
+      "name": "Podman",
+      "install": "podman",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Run containers without a background service, with Docker style commands.",
+      "why": "A safer way to try Docker ideas.",
+      "trending": false,
+      "highlight": "Containers without root"
+    },
+    {
+      "id": 131,
+      "name": "Meld",
+      "install": "meld",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Compare two files or folders side by side.",
+      "why": "Very useful to see the changes between two versions.",
+      "trending": false,
+      "highlight": "See two files side by side"
+    },
+    {
+      "id": 132,
+      "name": "SQLite Browser",
+      "install": "sqlitebrowser",
+      "selected": false,
+      "type": "package",
+      "category": "Development",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Open and edit SQLite databases with a window.",
+      "why": "Good for school projects that use a small database.",
+      "trending": false,
+      "highlight": "Edit a database like a table"
+    },
+    {
+      "id": 133,
+      "name": "Firefox",
+      "install": "firefox",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": true,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The web browser from Mozilla, open source and focused on privacy.",
+      "why": "It is the default browser on many distros and works well everywhere.",
+      "flatpak": "org.mozilla.firefox",
+      "trending": false,
+      "highlight": "Independent engine, strong privacy"
+    },
+    {
+      "id": 134,
+      "name": "Chromium",
+      "install": "chromium",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "The open source base of Google Chrome.",
+      "why": "Works like Chrome, without the Google account part.",
+      "flatpak": "org.chromium.Chromium",
+      "trending": false,
+      "highlight": "Chrome without Google services"
+    },
+    {
+      "id": 135,
+      "name": "Google Chrome",
+      "install": "google-chrome",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "The most used web browser in the world.",
+      "why": "Some sites and school tools work best in Chrome.",
+      "flatpak": "com.google.Chrome",
+      "trending": false,
+      "highlight": "Sync with your Google account"
+    },
+    {
+      "id": 136,
+      "name": "Brave",
+      "install": "brave",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A fast browser that blocks ads and trackers by default.",
+      "why": "Same extensions as Chrome, with more privacy.",
+      "flatpak": "com.brave.Browser",
+      "trending": false,
+      "highlight": "Blocks ads by default"
+    },
+    {
+      "id": 137,
+      "name": "LibreWolf",
+      "install": "librewolf",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A version of Firefox with strong privacy settings.",
+      "why": "Privacy is already set up when you open it.",
+      "flatpak": "io.gitlab.librewolf-community",
+      "trending": false,
+      "highlight": "Firefox with privacy already on"
+    },
+    {
+      "id": 138,
+      "name": "Tor Browser",
+      "install": "tor-browser",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A browser that hides your location through the Tor network.",
+      "why": "Use it when you need to stay anonymous.",
+      "flatpak": "org.torproject.torbrowser-launcher",
+      "trending": false,
+      "highlight": "Hides who and where you are"
+    },
+    {
+      "id": 139,
+      "name": "Thunderbird",
+      "install": "thunderbird",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": true,
+      "managers": [
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "An email program with calendar and many accounts.",
+      "why": "All your mail in one place, without a browser tab.",
+      "flatpak": "org.mozilla.Thunderbird",
+      "trending": false,
+      "highlight": "All mail accounts in one app"
+    },
+    {
+      "id": 140,
+      "name": "Telegram",
+      "install": "telegram",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": true,
+      "managers": [],
+      "description": "The Telegram messenger for the desktop.",
+      "why": "Lets you use your chats on the computer.",
+      "flatpak": "org.telegram.desktop",
+      "trending": false,
+      "highlight": "Fast chats, big groups and bots"
+    },
+    {
+      "id": 141,
+      "name": "Signal",
+      "install": "signal",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A messenger with end to end encryption.",
+      "why": "The most private messenger for the desktop.",
+      "flatpak": "org.signal.Signal",
+      "trending": false,
+      "highlight": "End to end encryption for everything"
+    },
+    {
+      "id": 142,
+      "name": "Discord",
+      "install": "discord",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": true,
+      "managers": [],
+      "description": "Voice and text chat for friends, games and communities.",
+      "why": "Where most gaming and programming communities talk.",
+      "flatpak": "com.discordapp.Discord",
+      "trending": false,
+      "highlight": "Voice rooms for friends and games"
+    },
+    {
+      "id": 143,
+      "name": "Slack",
+      "install": "slack",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A chat program used by many teams at work.",
+      "why": "You may need it for an internship.",
+      "flatpak": "com.slack.Slack",
+      "trending": false,
+      "highlight": "Team chat for work"
+    },
+    {
+      "id": 144,
+      "name": "Zoom",
+      "install": "zoom",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A program for video calls and online classes.",
+      "why": "Many online classes and meetings use it.",
+      "flatpak": "us.zoom.Zoom",
+      "trending": false,
+      "highlight": "Video calls and online classes"
+    },
+    {
+      "id": 145,
+      "name": "Element",
+      "install": "element",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A messenger for the open Matrix network.",
+      "why": "Good for open source communities.",
+      "flatpak": "im.riot.Riot",
+      "trending": false,
+      "highlight": "Chat on the open Matrix network"
+    },
+    {
+      "id": 146,
+      "name": "qBittorrent",
+      "install": "qbittorrent",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A torrent client without ads.",
+      "why": "The best choice to download Linux ISO files.",
+      "trending": false,
+      "highlight": "Torrents with no ads"
+    },
+    {
+      "id": 147,
+      "name": "FileZilla",
+      "install": "filezilla",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Upload and download files with FTP and SFTP.",
+      "why": "A simple way to put your site on a server.",
+      "trending": false,
+      "highlight": "Upload a site with drag and drop"
+    },
+    {
+      "id": 148,
+      "name": "Remmina",
+      "install": "remmina",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Connect to other computers with RDP, VNC and SSH.",
+      "why": "Lets you use a Windows computer from Linux.",
+      "trending": false,
+      "highlight": "Control another computer"
+    },
+    {
+      "id": 149,
+      "name": "Syncthing",
+      "install": "syncthing",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Keeps folders in sync between your devices, with no cloud.",
+      "why": "Your files stay only on your devices.",
+      "trending": false,
+      "highlight": "Sync between devices with no cloud"
+    },
+    {
+      "id": 150,
+      "name": "Nextcloud Desktop",
+      "install": "nextcloud",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "Syncs a folder with your Nextcloud server.",
+      "why": "Use it if you have your own cloud.",
+      "flatpak": "com.nextcloud.desktopclient.nextcloud",
+      "trending": false,
+      "highlight": "Your own cloud, synced"
+    },
+    {
+      "id": 151,
+      "name": "Dropbox",
+      "install": "dropbox",
+      "selected": false,
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "Syncs a folder with your Dropbox account.",
+      "why": "Shares files with people who already use Dropbox.",
+      "flatpak": "com.dropbox.Client",
+      "trending": false,
+      "highlight": "Shared folders with anyone"
+    },
+    {
+      "id": 152,
+      "name": "Spotify",
+      "install": "spotify",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": true,
+      "managers": [],
+      "description": "Stream music and podcasts.",
+      "why": "The easiest way to listen to your playlists on Linux.",
+      "flatpak": "com.spotify.Client",
+      "trending": false,
+      "highlight": "Your playlists on Linux"
+    },
+    {
+      "id": 153,
+      "name": "Audacity",
+      "install": "audacity",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Record and edit sound.",
+      "why": "Free and easy for podcasts and school projects.",
+      "trending": false,
+      "highlight": "Record and cut audio"
+    },
+    {
+      "id": 154,
+      "name": "Kdenlive",
+      "install": "kdenlive",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A video editor with many tracks and effects.",
+      "why": "The best free video editor for most people.",
+      "trending": false,
+      "highlight": "Multi track video editor"
+    },
+    {
+      "id": 155,
+      "name": "Shotcut",
+      "install": "shotcut",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [],
+      "description": "A simple video editor that works with many formats.",
+      "why": "Easier to learn than Kdenlive.",
+      "flatpak": "org.shotcut.Shotcut",
+      "trending": false,
+      "highlight": "Simple video editor for beginners"
+    },
+    {
+      "id": 156,
+      "name": "HandBrake",
+      "install": "handbrake",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [],
+      "description": "Converts videos to other formats and sizes.",
+      "why": "Make a big video small enough to send.",
+      "flatpak": "fr.handbrake.ghb",
+      "trending": false,
+      "highlight": "Shrink big videos"
+    },
+    {
+      "id": 157,
+      "name": "yt-dlp",
+      "install": "yt-dlp",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Download videos and music from many sites, from the terminal.",
+      "why": "The most complete downloader, and it is updated often.",
+      "trending": false,
+      "highlight": "Download from thousands of sites"
+    },
+    {
+      "id": 158,
+      "name": "Strawberry",
+      "install": "strawberry",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A music player for big local collections.",
+      "why": "Good if you have your own music files.",
+      "trending": false,
+      "highlight": "Player for a big music library"
+    },
+    {
+      "id": 159,
+      "name": "Rhythmbox",
+      "install": "rhythmbox",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple music player that also plays podcasts and radio.",
+      "why": "Easy and works right after install.",
+      "trending": false,
+      "highlight": "Music, podcasts and radio"
+    },
+    {
+      "id": 160,
+      "name": "Cmus",
+      "install": "cmus",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A music player for the terminal.",
+      "why": "Fast, light and controlled with the keyboard.",
+      "trending": false,
+      "highlight": "Music player in the terminal"
+    },
+    {
+      "id": 161,
+      "name": "MPD",
+      "install": "mpd",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A music server that you control from other programs.",
+      "why": "Play music in the background and control it from your bar.",
+      "trending": false,
+      "highlight": "Music in the background, controlled from anywhere"
+    },
+    {
+      "id": 162,
+      "name": "Imv",
+      "install": "imv",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A small image viewer for X11 and Wayland.",
+      "why": "Opens a picture in a fraction of a second.",
+      "trending": false,
+      "highlight": "Opens images instantly"
+    },
+    {
+      "id": 163,
+      "name": "Celluloid",
+      "install": "celluloid",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A video player with a GTK window that uses MPV.",
+      "why": "The power of MPV without writing config files.",
+      "trending": false,
+      "highlight": "MPV with a friendly window"
+    },
+    {
+      "id": 164,
+      "name": "EasyEffects",
+      "install": "easyeffects",
+      "selected": false,
+      "type": "package",
+      "category": "Multimedia",
+      "recommended": false,
+      "managers": [],
+      "description": "Add effects like an equalizer and noise removal to your sound.",
+      "why": "Makes your speakers and microphone sound much better.",
+      "flatpak": "com.github.wwmm.easyeffects",
+      "trending": false,
+      "highlight": "Equalizer and noise removal"
+    },
+    {
+      "id": 165,
+      "name": "LibreOffice",
+      "install": "libreoffice",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper"
+      ],
+      "description": "A full office suite with a text editor, spreadsheets and slides.",
+      "why": "A free replacement for Microsoft Office.",
+      "flatpak": "org.libreoffice.LibreOffice",
+      "trending": false,
+      "highlight": "Opens Word, Excel and PowerPoint files"
+    },
+    {
+      "id": 166,
+      "name": "OnlyOffice",
+      "install": "onlyoffice",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [],
+      "description": "An office suite that is very close to Microsoft Office.",
+      "why": "Opens docx and xlsx files with fewer layout problems.",
+      "flatpak": "org.onlyoffice.desktopeditors",
+      "trending": false,
+      "highlight": "Looks like Microsoft Office"
+    },
+    {
+      "id": 167,
+      "name": "Okular",
+      "install": "okular",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A document viewer for PDF, EPUB and more.",
+      "why": "You can also write notes on the pages.",
+      "trending": false,
+      "highlight": "Write notes on PDFs"
+    },
+    {
+      "id": 168,
+      "name": "Evince",
+      "install": "evince",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A simple document viewer for PDF and other formats.",
+      "why": "The default PDF viewer of GNOME and Mint.",
+      "trending": false,
+      "highlight": "Simple PDF viewer"
+    },
+    {
+      "id": 169,
+      "name": "Zathura",
+      "install": "zathura",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A PDF viewer controlled with Vim like keys.",
+      "why": "Very light and good for window managers.",
+      "trending": false,
+      "highlight": "PDFs with Vim keys"
+    },
+    {
+      "id": 170,
+      "name": "Calibre",
+      "install": "calibre",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Manage and read your e-books and convert their format.",
+      "why": "The best tool for your book library.",
+      "trending": false,
+      "highlight": "Manage and convert e-books"
+    },
+    {
+      "id": 171,
+      "name": "Obsidian",
+      "install": "obsidian",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": true,
+      "managers": [],
+      "description": "Take notes in Markdown and link them together.",
+      "why": "A great way to keep your course notes.",
+      "flatpak": "md.obsidian.Obsidian",
+      "trending": false,
+      "highlight": "Notes that link to each other"
+    },
+    {
+      "id": 172,
+      "name": "Joplin",
+      "install": "joplin",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [],
+      "description": "A note taking app with sync and Markdown.",
+      "why": "An open source choice for your notes.",
+      "flatpak": "net.cozic.joplin_desktop",
+      "trending": false,
+      "highlight": "Open source notes with sync"
+    },
+    {
+      "id": 173,
+      "name": "Xournal++",
+      "install": "xournalpp",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Take handwritten notes and write on PDF files.",
+      "why": "Great for students with a tablet or a drawing pad.",
+      "trending": false,
+      "highlight": "Handwrite on PDFs"
+    },
+    {
+      "id": 174,
+      "name": "draw.io",
+      "install": "drawio",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [],
+      "description": "Draw diagrams, flowcharts and UML.",
+      "why": "Useful for the diagrams in your projects.",
+      "flatpak": "com.jgraph.drawio.desktop",
+      "trending": false,
+      "highlight": "Diagrams and UML for free"
+    },
+    {
+      "id": 175,
+      "name": "Pandoc",
+      "install": "pandoc",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Convert documents between Markdown, Word, PDF and more.",
+      "why": "Write in Markdown and export to PDF.",
+      "trending": false,
+      "highlight": "Markdown to PDF or Word"
+    },
+    {
+      "id": 176,
+      "name": "Inkscape",
+      "install": "inkscape",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A program to draw vector graphics like logos and icons.",
+      "why": "The free alternative to Illustrator.",
+      "trending": false,
+      "highlight": "Vector logos and icons"
+    },
+    {
+      "id": 177,
+      "name": "Krita",
+      "install": "krita",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A painting program for digital art.",
+      "why": "Made for drawing, with many brushes.",
+      "trending": false,
+      "highlight": "Digital painting with many brushes"
+    },
+    {
+      "id": 178,
+      "name": "Blender",
+      "install": "blender",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A program for 3D models, animation and video.",
+      "why": "Professional 3D tools for free.",
+      "trending": false,
+      "highlight": "3D, animation and video, free"
+    },
+    {
+      "id": 179,
+      "name": "Darktable",
+      "install": "darktable",
+      "selected": false,
+      "type": "package",
+      "category": "Office & Graphics",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Edit and develop RAW photos.",
+      "why": "The free alternative to Lightroom.",
+      "trending": false,
+      "highlight": "Edit RAW photos"
+    },
+    {
+      "id": 180,
+      "name": "Steam",
+      "install": "steam",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": true,
+      "managers": [],
+      "description": "The biggest store and launcher for PC games.",
+      "why": "Proton lets you play many Windows games on Linux.",
+      "flatpak": "com.valvesoftware.Steam",
+      "trending": true,
+      "highlight": "Proton runs Windows games"
+    },
+    {
+      "id": 181,
+      "name": "Lutris",
+      "install": "lutris",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "Manage games from many stores and emulators in one place.",
+      "why": "Makes it easy to install games that are not on Steam.",
+      "flatpak": "net.lutris.Lutris",
+      "trending": false,
+      "highlight": "All your game stores in one place"
+    },
+    {
+      "id": 182,
+      "name": "Heroic Games Launcher",
+      "install": "heroic",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "An open source launcher for Epic, GOG and Amazon games.",
+      "why": "Play your Epic Games library on Linux.",
+      "flatpak": "com.heroicgameslauncher.hgl",
+      "trending": false,
+      "highlight": "Epic and GOG games on Linux"
+    },
+    {
+      "id": 183,
+      "name": "Bottles",
+      "install": "bottles",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "Run Windows programs and games in separate bottles.",
+      "why": "Keeps every Windows app in its own clean place.",
+      "flatpak": "com.usebottles.bottles",
+      "trending": false,
+      "highlight": "Run Windows apps in clean boxes"
+    },
+    {
+      "id": 184,
+      "name": "ProtonUp-Qt",
+      "install": "protonup-qt",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "Install newer versions of Proton for Steam and Lutris.",
+      "why": "Fixes games that do not start with the default Proton.",
+      "flatpak": "net.davidotek.pupgui2",
+      "trending": false,
+      "highlight": "Newer Proton for problem games"
+    },
+    {
+      "id": 185,
+      "name": "Prism Launcher",
+      "install": "prismlauncher",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "A launcher for Minecraft with many instances and mods.",
+      "why": "Keep many Minecraft versions without mixing them.",
+      "flatpak": "org.prismlauncher.PrismLauncher",
+      "trending": false,
+      "highlight": "Many Minecraft versions side by side"
+    },
+    {
+      "id": 186,
+      "name": "RetroArch",
+      "install": "retroarch",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "A program to play old games from many consoles.",
+      "why": "One program for all your retro games.",
+      "flatpak": "org.libretro.RetroArch",
+      "trending": false,
+      "highlight": "One app for retro consoles"
+    },
+    {
+      "id": 187,
+      "name": "Dolphin Emulator",
+      "install": "dolphin-emu",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [],
+      "description": "An emulator for GameCube and Wii games.",
+      "why": "Plays old Nintendo games in high resolution.",
+      "flatpak": "org.DolphinEmu.dolphin-emu",
+      "trending": false,
+      "highlight": "GameCube and Wii in HD"
+    },
+    {
+      "id": 188,
+      "name": "MangoHud",
+      "install": "mangohud",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows FPS, temperature and CPU use on top of a game.",
+      "why": "See how well a game runs on your computer.",
+      "trending": false,
+      "highlight": "FPS and temps over your game"
+    },
+    {
+      "id": 189,
+      "name": "GameMode",
+      "install": "gamemode",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Makes the computer give more power to a game while it runs.",
+      "why": "A small free boost in many games.",
+      "trending": false,
+      "highlight": "More power while you play"
+    },
+    {
+      "id": 190,
+      "name": "SuperTuxKart",
+      "install": "supertuxkart",
+      "selected": false,
+      "type": "package",
+      "category": "Gaming",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A fun open source kart racing game.",
+      "why": "A free game for a quick break.",
+      "trending": false,
+      "highlight": "Kart racing with Tux"
+    },
+    {
+      "id": 191,
+      "name": "Wireshark",
+      "install": "wireshark",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows the network traffic that goes through your computer.",
+      "why": "The standard tool to learn how networks work.",
+      "trending": false,
+      "highlight": "See every network packet"
+    },
+    {
+      "id": 192,
+      "name": "Nmap",
+      "install": "nmap",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Scans a network to find devices and open ports.",
+      "why": "Useful for your networking classes and to check your own network.",
+      "trending": false,
+      "highlight": "Find devices and open ports"
+    },
+    {
+      "id": 193,
+      "name": "KeePassXC",
+      "install": "keepassxc",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": true,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A password manager that keeps everything in a local file.",
+      "why": "Your passwords stay on your computer.",
+      "trending": false,
+      "highlight": "Passwords in a local encrypted file"
+    },
+    {
+      "id": 194,
+      "name": "Bitwarden",
+      "install": "bitwarden",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [],
+      "description": "A password manager that syncs between your devices.",
+      "why": "Use the same passwords on your phone and computer.",
+      "flatpak": "com.bitwarden.desktop",
+      "trending": false,
+      "highlight": "Passwords synced everywhere"
+    },
+    {
+      "id": 195,
+      "name": "Firewalld",
+      "install": "firewalld",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "A firewall that you control with simple commands or a window.",
+      "why": "The default firewall on Fedora and openSUSE.",
+      "trending": false,
+      "highlight": "Firewall zones for home and public Wi-Fi"
+    },
+    {
+      "id": 196,
+      "name": "Fail2ban",
+      "install": "fail2ban",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Blocks computers that try to guess your password many times.",
+      "why": "Useful when you have a server with SSH.",
+      "trending": false,
+      "highlight": "Blocks password guessers"
+    },
+    {
+      "id": 197,
+      "name": "OpenVPN",
+      "install": "openvpn",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Connects to a VPN with a config file.",
+      "why": "Many schools and companies use it.",
+      "trending": false,
+      "highlight": "Works with most school VPNs"
+    },
+    {
+      "id": 198,
+      "name": "WireGuard Tools",
+      "install": "wireguard-tools",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Tools for the fast and simple WireGuard VPN.",
+      "why": "Easier and faster than OpenVPN.",
+      "trending": false,
+      "highlight": "Fast modern VPN"
+    },
+    {
+      "id": 199,
+      "name": "Proton VPN",
+      "install": "protonvpn",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [],
+      "description": "The app of the Proton VPN service.",
+      "why": "A VPN from a company with a good privacy record.",
+      "flatpak": "com.protonvpn.www",
+      "trending": false,
+      "highlight": "Free VPN plan with no ads"
+    },
+    {
+      "id": 200,
+      "name": "ClamAV",
+      "install": "clamav",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "An antivirus that scans your files.",
+      "why": "Useful to scan files that you send to Windows users.",
+      "trending": false,
+      "highlight": "Scans files for viruses"
+    },
+    {
+      "id": 201,
+      "name": "Lynis",
+      "install": "lynis",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Checks the security of your system and gives advice.",
+      "why": "Shows what you can do to make your Linux safer.",
+      "trending": false,
+      "highlight": "A security check up for Linux"
+    },
+    {
+      "id": 202,
+      "name": "MTR",
+      "install": "mtr",
+      "selected": false,
+      "type": "package",
+      "category": "Security & Network",
+      "recommended": false,
+      "managers": [
+        "apt",
+        "dnf",
+        "zypper",
+        "pacman"
+      ],
+      "description": "Shows the path of your network traffic and where it gets slow.",
+      "why": "Helps when the internet is slow.",
+      "trending": false,
+      "highlight": "Finds where the internet gets slow"
+    },
+    {
+      "id": 203,
+      "selected": false,
+      "name": "Niri",
+      "install": "niri",
+      "type": "configuration",
+      "category": "Interface & Tiling",
+      "recommended": false,
+      "managers": [
+        "dnf",
+        "pacman"
+      ],
+      "description": "A scrolling tiling window manager for Wayland: new windows open in a long row that you scroll through.",
+      "why": "One of the fastest growing window managers in 2026, and windows never get too small.",
+      "trending": true,
+      "highlight": "Windows in an endless scrolling row"
+    },
+    {
+      "id": 204,
+      "selected": false,
+      "name": "Zen Browser",
+      "install": "zen-browser",
+      "type": "package",
+      "category": "Internet",
+      "recommended": false,
+      "managers": [],
+      "description": "A browser based on Firefox, with vertical tabs and a calm, clean design.",
+      "why": "Very popular with ricers because it looks good with any theme.",
+      "flatpak": "app.zen_browser.zen",
+      "trending": true,
+      "highlight": "Vertical tabs and a calm design"
     }
   ]
 }
